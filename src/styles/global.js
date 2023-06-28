@@ -2,12 +2,12 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
 
-  * {
-padding:0;
-margin:0;
-vertical-align:baseline;
-list-style:none;
-border:0
+* {
+	padding:0;
+	margin:0;
+	vertical-align:baseline;
+	list-style:none;
+	border:0
 }
 
 /* http://meyerweb.com/eric/tools/css/reset/
@@ -35,6 +35,7 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
@@ -57,6 +58,74 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+
+:root {
+
+/* TIPOGRAPHY */
+--fontFamilyOswald: 'Oswald', sans-serif;
+--fontFamilyLato: 'Lato', sans-serif;
+
+/* PRIMARY PALLETE */
+--charcoal: #353C45;
+--primary-blue: #2C97DE;
+--base-gray: #EFEFEF;
+--transparent: transparent;
+
+/* COMPONENTS */
+--snow: #2C97DE;
+--cloudy: #2BBF6D;
+--sunny: #EFC662;
+--hot: #E25F70;
+--rain: #9577DE;
+
+/* NOTIFICATIONS */
+--green-200: #2BBDA8;
+--yellow-900: #D9A321;
+--red-300: #CB3F4A;
+--purple-700: #7149A4;
+
+/* GRAY SCALE PALLETE */
+--white: #FFFFFF;
+--black: #000000;
+--gray-2: #EFEFEF;
+--gray-3: #C2C8CF;
+--gray-4: #8B939C;
+--gray-5: #686C73;
+--gray-6: #434B53;
+--gray-7: #353D45;
+--gray-8: #2E363E;
+
+/* ALERTS */
+--negative: #E60000;
+--warning: #FFCD07;
+--sucess: #168821;
+--information: #155BCB;
+
+/* HEADING-1 - 24px */
+--heading-1: 1.5rem;
+--line-height-h1: 2rem;
+
+/* HEADING-2 - 20px */
+--heading-2: 1.25rem;
+--line-height-h2: 1.75rem;
+
+/* HEADING-3 - 18px */
+--heading-3: 1.125rem;
+--line-height-h3: 1.75rem;
+
+/* CONTENT MD - 16px */
+--content-md: 1rem;
+--line-height-md: 1.5rem;
+
+/* CONTENT SM - 14px */
+--content-sm: 0.875rem;
+--line-height-sm: 1.25rem;
+
+/* CONTENT XS - 12px */
+--content-xs: 0.75rem;
+--line-height-xs: 1rem;
+
 }
 
 `;
