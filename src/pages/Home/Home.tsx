@@ -1,19 +1,10 @@
+import { Header } from "../../components/layout/Header/";
 import "./Home.style.js";
 
 export const Home = () => {
 	return (
 		<>
-			<header className="header">
-				<div className="container">
-					<div className="content">
-						<figure>
-							<img src="" alt="Logotipo" />
-							<span>Project Weather</span>
-						</figure>
-						<button className="icon">Notificações</button>
-					</div>
-				</div>
-			</header>
+			<Header />
 			<main className="main">
 				<div className="container">
 					<div className="content">
