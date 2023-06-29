@@ -68,7 +68,7 @@ table {
 
 /* PRIMARY PALLETE */
 --charcoal: #353C45;
---primary-blue: #2C97DE;
+--primary-color: #2C97DE;
 --base-gray: #EFEFEF;
 --transparent: transparent;
 
@@ -115,16 +115,33 @@ table {
 --line-height-h3: 1.75rem;
 
 /* CONTENT MD - 16px */
---content-md: 1rem;
+--text-md: 1rem;
 --line-height-md: 1.5rem;
 
 /* CONTENT SM - 14px */
---content-sm: 0.875rem;
+--text-sm: 0.875rem;
 --line-height-sm: 1.25rem;
 
 /* CONTENT XS - 12px */
---content-xs: 0.75rem;
+--text-xs: 0.75rem;
 --line-height-xs: 1rem;
+
+/* BORDER RADIUS */
+--rounded-none: 0px;
+--rounded-sm:	0.125rem; /* 2px */
+--rounded: 0.25rem; /* 4px */
+--rounded-md:	0.375rem; /* 6px */
+--rounded-lg:	0.5rem; /* 8px */
+--rounded-xl:	0.75rem; /* 12px */
+--rounded-2xl:	1rem; /* 16px */
+
+/* BOX SHADOW */
+--shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+--shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+--shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+--shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+--shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+--shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
 
 }
 
