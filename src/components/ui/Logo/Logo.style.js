@@ -1,23 +1,24 @@
 import { styled } from "styled-components";
 
 export const StyledLogo = styled.div`
-	.homepage__link {
+	.homepage_link {
 		display: flex;
 		text-decoration: none;
 		align-items: center;
 		gap: 8px;
 	}
 
-	.homepage__link__figure {
+	.homepage_link_figure {
 	}
 
-	.homepage__link__image {
+	.homepage_link_image {
 		width: 40px;
 	}
 
-	.homepage__link__text {
+	.homepage_link_text {
 		font-family: var(--fontFamilyLato);
-		font-size: var(--heading-1);
+		font-size: var(--text-2xl);
+		line-height: var(--line-height-2xl);
 		color: var(--black);
 	}
 `;

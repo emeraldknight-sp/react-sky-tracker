@@ -6,11 +6,11 @@ import ImageLogo from "../../../assets/logo.png";
 export const Logo = () => {
 	return (
 		<StyledLogo>
-			<Link to="/" className="homepage__link">
-				<figure className="homepage__link__figure">
-					<img src={ImageLogo} className="homepage__link__image" alt="Logo" />
+			<Link to="/" className="homepage_link">
+				<figure className="homepage_link_figure">
+					<img src={ImageLogo} className="homepage_link_image" alt="Logo" />
 				</figure>
-				<span className="homepage__link__text">Project Weather</span>
+				<span className="homepage_link_text">Project Weather</span>
 			</Link>
 		</StyledLogo>
 	);
