@@ -102,27 +102,31 @@ table {
 --sucess: #168821;
 --information: #155BCB;
 
-/* HEADING-1 - 24px */
---heading-1: 1.5rem;
---line-height-h1: 2rem;
+/* FONT-SIZE */
+--text-5xl: 3rem;
+--line-height-5xl: 1;
 
-/* HEADING-2 - 20px */
---heading-2: 1.25rem;
---line-height-h2: 1.75rem;
+--text-4xl: 2.25rem;
+--line-height-4xl: 2.5rem;
 
-/* HEADING-3 - 18px */
---heading-3: 1.125rem;
---line-height-h3: 1.75rem;
+--text-3xl: 1.875rem;
+--line-height-3xl: 2.25rem;
 
-/* CONTENT MD - 16px */
+--text-2xl: 1.5rem;
+--line-height-2xl: 2rem;
+
+--text-xl: 1.25rem;
+--line-height-xl: 1.75rem;
+
+--text-lg: 1.125rem;
+--line-height-lg: 1.75rem;
+
 --text-md: 1rem;
 --line-height-md: 1.5rem;
 
-/* CONTENT SM - 14px */
 --text-sm: 0.875rem;
 --line-height-sm: 1.25rem;
 
-/* CONTENT XS - 12px */
 --text-xs: 0.75rem;
 --line-height-xs: 1rem;
 
