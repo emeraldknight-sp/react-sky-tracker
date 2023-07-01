@@ -1,13 +1,13 @@
-import { AlertsData } from "./AlertsData";
-import { CurrentData } from "./CurrentData";
-import { ForecastData } from "./ForecastData";
-import { LocationData } from "./LocationData";
+import { Alerts } from "./Alerts";
+import { Current } from "./Current";
+import { Forecast } from "./Forecast";
+import { Location } from "./Location";
 
 export interface ForecastWeatherData {
 	data: {
-		location: LocationData;
-		current: CurrentData;
-		forecast: ForecastData;
-		alerts: AlertsData;
+		location: Location;
+		current: Current;
+		forecast: Forecast;
+		alerts: Alerts;
 	};
 }

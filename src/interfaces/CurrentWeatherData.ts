@@ -1,9 +1,9 @@
-import { CurrentData } from "./CurrentData";
-import { LocationData } from "./LocationData";
+import { Current } from "./Current";
+import { Location } from "./Location";
 
 export interface CurrentWeatherData {
 	data: {
-		location: LocationData;
-		current: CurrentData;
+		location: Location;
+		current: Current;
 	};
 }
