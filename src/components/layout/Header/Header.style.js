@@ -1,11 +1,12 @@
 import { styled } from "styled-components";
 
 export const StyledHeader = styled.header`
+	padding: 1rem;
+
 	.content {
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
-		padding: 8px 0;
 	}
 
 	.header__button__icon {
