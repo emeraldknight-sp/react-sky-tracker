@@ -5,8 +5,6 @@ export const getLocation = async () => {
 		);
 		const data = await res.json();
 
-		console.log("DADOS:", data);
-
 		return data;
 	} catch (err) {
 		console.error("Erro: ", err);
