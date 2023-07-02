@@ -1,16 +1,12 @@
 import { styled } from "styled-components";
 
 export const StyledClimatePreview = styled.div`
-	.content {
-		padding: 1rem 0;
-	}
-
-	.climate_preview_head {
+	.climate-preview__head {
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
 
-		.climate_preview_title {
+		.climate-preview__title {
 			font-family: var(--fontFamilyLato);
 			font-size: var(--text-lg);
 			line-height: var(--line-height-lg);
@@ -35,20 +31,19 @@ export const StyledClimatePreview = styled.div`
 		}
 	}
 
-	.climate_preview_body {
+	.climate-preview__body {
 		display: flex;
 		flex-direction: row;
 		gap: 1rem;
-		overflow-x: auto;
-		padding: 0 0 1rem;
+		padding: 1rem;
 
-		.climate_preview_list {
+		.climate-preview__list {
 			display: flex;
 			flex-direction: row;
 			gap: 1rem;
 			width: 100%;
-			overflow-x: auto;
-			padding: 1rem 0;
 		}
+
+		overflow-x: scroll;
 	}
 `;

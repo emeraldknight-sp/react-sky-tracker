@@ -1,4 +1,4 @@
-import { StyledClimatePreviewHourly } from "./ClimatePreview.style";
+import { StyledClimatePreviewHourly } from "./ClimatePreviewHourly.style";
 import { Forecast } from "../../../../interfaces/Forecast";
 import { formatDateToYYYYMMDD } from "../../../utils/formatDateToYYYYMMDD";
 
@@ -29,29 +29,27 @@ export const ClimatePreviewHourly = ({ data }: ClimatePreviewHourlyProps) => {
 		<>
 			{hour.map((element, index) => {
 				const elementHour = new Date(element.time);
-				const temp_c = Math.round(element.temp_c)
-				const { icon } = element.condition
-				
+				const temp_c = Math.round(element.temp_c);
+				const { icon } = element.condition;
+
 				const whatTimeIsIt = isSameHour(now, elementHour);
-				
+
 				return (
 					<StyledClimatePreviewHourly
 						key={index}
-						className={`${whatTimeIsIt ? "currentHour" : "previewHour"}`}
+						className={`${whatTimeIsIt ? "current-hour" : "preview-hour"}`}
 					>
-						<p className="climate_preview_hourly_hour">
+						<p className="hourly-box__hour">
 							{elementHour.toLocaleString(locale, options)}
 						</p>
-						<figure className="climate_preview_hourly_figure">
+						<figure className="hourly-box__figure">
 							<img
 								src={`https:${icon}`}
-								className="climate_preview_hourly_image"
+								className="hourly-box__image"
 								alt="weather condition icon"
 							/>
 						</figure>
-						<p className="climate_preview_hourly_temperature">
-							{temp_c}ºC
-						</p>
+						<p className="hourly-box__temperature">{temp_c}ºC</p>
 					</StyledClimatePreviewHourly>
 				);
 			})}

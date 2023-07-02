@@ -26,25 +26,25 @@ export const ClimatePreviewWeekly = ({ data }: ClimatePreviewWeeklyProps) => {
 				return (
 					<StyledClimatePreviewWeekly
 						key={index}
-						className={`${isCurrentDay ? "currentDay" : "previewDay"}`}
+						className={`${isCurrentDay ? "current-day" : "preview-day"}`}
 					>
-						<div className="climate_preview_weekly_box climate_preview_weekly_box--flex-row">
-							<p className="climate_preview_weekly_text climate_preview_weekly_text--capitalize">
+						<div className="weekly-box weekly-box--flex-row">
+							<p className="weekly-box__text weekly-box__text--capitalize">
 								{currentDay.replace(",", " ")}
 							</p>
 						</div>
-						<div className="climate_preview_weekly_box">
-							<p className="climate_preview_weekly_text--2xl">{avgTemp}ºC</p>
+						<div className="weekly-box">
+							<p className="weekly-box__text--2xl">{avgTemp}ºC</p>
 						</div>
 						<figure>
 							<img
 								src={`https:${icon}`}
-								className="climate_preview_weekly_image"
+								className="weekly-box__image"
 								alt="weather condition icon"
 							/>
 						</figure>
-						<div className="climate_preview_weekly_box">
-							<p className="climate_preview_weekly_text">{text}</p>
+						<div className="weekly-box">
+							<p className="weekly-box__text">{text}</p>
 						</div>
 					</StyledClimatePreviewWeekly>
 				);

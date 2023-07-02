@@ -15,8 +15,8 @@ export const ClimatePreview = ({ data }: ForecastWeatherData) => {
 
 	return (
 		<StyledClimatePreview>
-			<div className="climate_preview_head">
-				<p className="climate_preview_title">
+			<div className="climate-preview__head">
+				<p className="climate-preview__title">
 					{showHourly ? "Próximas horas" : "Próximos dias"}
 				</p>
 				<button
@@ -27,8 +27,8 @@ export const ClimatePreview = ({ data }: ForecastWeatherData) => {
 					{showHourly ? "Próximos dias" : "Próximas horas"}
 				</button>
 			</div>
-			<div className="climate_preview_body">
-				<ul className="climate_preview_list">
+			<div className="climate-preview__body">
+				<ul className="climate-preview__list">
 					{showHourly ? (
 						<ClimatePreviewHourly data={forecast} />
 					) : (
