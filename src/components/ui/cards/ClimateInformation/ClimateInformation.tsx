@@ -5,32 +5,45 @@ import { formatDateToYYYYMMDD } from "../../../utils/formatDateToYYYYMMDD";
 
 export const ClimateInformation = ({ data }: ForecastWeatherData) => {
 	const { location, current, forecast } = data;
-	const currentDate = formatDateToYYYYMMDD(new Date)
-	const minTemp = Math.round(Number(forecast.forecastday.find((element) => (element.date === currentDate))?.day.mintemp_c));
-	const maxTemp = Math.round(Number(forecast.forecastday.find((element) => (element.date === currentDate))?.day.maxtemp_c));
-	const feelsLike = Math.round(current.feelslike_c)
-	const {icon, text} = current.condition
+	const currentDate = formatDateToYYYYMMDD(new Date());
+	const minTemp = Math.round(
+		Number(
+			forecast.forecastday.find((element) => element.date === currentDate)?.day
+				.mintemp_c,
+		),
+	);
+	const maxTemp = Math.round(
+		Number(
+			forecast.forecastday.find((element) => element.date === currentDate)?.day
+				.maxtemp_c,
+		),
+	);
+	const temp_c = Math.round(current.temp_c);
+	const feelsLike = Math.round(current.feelslike_c);
+	const { icon, text } = current.condition;
 
 	return (
 		<StyledClimateInformation>
-			<div className="content">
-				<p className="location">{`${location.name}, ${location.country}`}</p>
-				<p className="temperature">{`${current.temp_c}`}ºC</p>
-				<div className="preview">
-					<div className="preview_temp">
-						<FiTrendingDown />
+			<div className="climate-info">
+				<p className="climate-info__location">{`${location.name}, ${location.country}`}</p>
+				<p className="climate-info__temperature">{`${temp_c}`}ºC</p>
+				<div className="climate-info__preview">
+					<p className="climate-info__preview-temp">
+						<span className="climate-info__preview-temp--icon">
+							<FiTrendingDown />
+						</span>
 						{`Mín: ${minTemp}ºC`}
-					</div>
-					<div className="preview_temp">
-						<FiTrendingUp />
+					</p>
+					<p className="climate-info__preview-temp">
+						<span className="climate-info__preview-temp--icon">
+							<FiTrendingUp />
+						</span>
 						{`Máx: ${maxTemp}ºC`}
-					</div>
+					</p>
 				</div>
-				<div>
-					<p className="feelslike">{`Sensação Térmica: ${feelsLike}ºC`}</p>
-				</div>
+				<p className="climate-info__feelslike">{`Sensação Térmica: ${feelsLike}ºC`}</p>
 			</div>
-			<div className="content content--without-gap">
+			<div className="climate-info">
 				<figure>
 					<img src={`http:${icon}`} alt="condition weather" />
 				</figure>

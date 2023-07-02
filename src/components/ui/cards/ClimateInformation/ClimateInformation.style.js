@@ -5,14 +5,14 @@ export const StyledClimateInformation = styled.div`
 	flex-direction: row;
 	justify-content: space-between;
 	padding: 1rem;
-	height: 9rem;
 	background-color: var(--snow);
 	border-radius: var(--rounded-md);
 	box-shadow: var(--shadow-md);
 	color: var(--white);
 	font-family: var(--fontFamilyLato);
+	text-align: center;
 
-	.content {
+	.climate-info {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -20,40 +20,49 @@ export const StyledClimateInformation = styled.div`
 		gap: 0.5rem;
 	}
 
-	.content--without-gap {
-		gap: 0;
-	}
-
-	.location {
+	.climate-info__location {
 		font-size: var(--text-sm);
 		line-height: var(--line-height-sm);
-		text-align: center;
 	}
 
-	.temperature {
+	.climate-info__temperature {
 		font-size: var(--text-5xl);
 		line-height: var(--line-height-5xl);
-		text-align: center;
 	}
 
-	.preview {
+	.climate-info__details {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.climate-info__preview {
 		display: flex;
 		flex-direction: row;
-		gap: 0.5rem;
+		gap: 0.25rem;
 
-		.preview_temp {
+		.climate-info__preview-temp {
 			display: flex;
 			flex-direction: row;
-			justify-content: center;
-			align-items: center;
 			gap: 0.25rem;
 			font-size: var(--text-xs);
-			line-height: var(--line-height---text-xs);
+			line-height: var(--line-height-xs);
+
+			.climate-info__preview-temp--icon {
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
+				align-items: center;
+			}
 		}
 	}
 
-	.feelslike {
+	.climate-info__feelslike {
 		font-size: var(--text-xs);
 		line-height: var(--line-height-xs);
+	}
+
+	@media screen and (min-width: 768px) {
+		/* width: 18rem; */
+		height: 8rem;
 	}
 `;
