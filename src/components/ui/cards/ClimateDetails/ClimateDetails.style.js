@@ -6,27 +6,45 @@ export const StyledClimateDetails = styled.div`
 	grid-template-rows: repeat(2, 1fr);
 	justify-items: center;
 	gap: 1rem;
-
-	@media (min-width: 768px) {
-		grid-template-columns: repeat(6, 1fr);
-		grid-template-rows: repeat(1, 1fr);
-		height: 6rem;
-	}
+	
+	background-color: var(--white);
+	color: var(--black);
 
 	box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
-	border-radius: 0.5rem;
+	border-radius: var(--rounded-md);
 	padding: 1rem;
 
-	.text {
+	.climate-item {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+		gap: 0.5rem;
+
+		max-width: 100px;
+	}
+
+	.climate-item__text {
 		font-family: var(--fontFamilyLato);
 		text-align: center;
 	}
 
-	.text_data {
+	.climate-item__text--data {
 		font-size: var(--text-sm);
 	}
 
-	.text_description {
+	.climate-item__text--description {
 		font-size: var(--text-xs);
+	}
+
+	@media (min-width: 768px) {
+		grid-template-columns: repeat(6, 1fr);
+		grid-template-rows: repeat(1, 1fr);
+		/* width: 35rem; */
+		height: 8rem;
+
+		.climate-item {
+			justify-content: center;
+		}
 	}
 `;
