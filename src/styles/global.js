@@ -138,6 +138,8 @@ table {
 --rounded-lg:	0.5rem; /* 8px */
 --rounded-xl:	0.75rem; /* 12px */
 --rounded-2xl:	1rem; /* 16px */
+--rounded-3xl: 1.5rem; /* 24px */
+--rounded-full: 9999px; 
 
 /* BOX SHADOW */
 --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
