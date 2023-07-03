@@ -9,6 +9,10 @@ interface ClimatePreviewWeeklyProps {
 export const ClimatePreviewWeekly = ({ data }: ClimatePreviewWeeklyProps) => {
 	const currentDate = formatDateToYYYYMMDD(new Date());
 
+	if (!data) {
+		return <div>Carregando...</div>
+	}
+
 	return (
 		<>
 			{data.map(({ date, day }, index) => {
