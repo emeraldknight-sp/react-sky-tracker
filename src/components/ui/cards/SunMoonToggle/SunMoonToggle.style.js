@@ -11,19 +11,12 @@ export const StyledSunMoonToggle = styled.div`
 		backdrop-filter: blur(2px);
 		-webkit-backdrop-filter: blur(2px);
 		padding: 1rem;
-
 	}
 
 	.astro__title {
 		font-size: var(--text-lg);
 		line-height: var(--line-height-lg);
 		font-family: var(--fontFamilyLato);
-		background: rgba(255, 255, 255, 0.2);
-		box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-		backdrop-filter: blur(2px);
-		-webkit-backdrop-filter: blur(2px);
-		border-radius: var(--rounded-md);
-		padding: 1rem;
 	}
 
 	.astro__content {
