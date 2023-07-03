@@ -2,6 +2,7 @@
 	"name": "react-project-weather",
 	"version": "0.1.0",
 	"private": true,
+	"homepage": "https://emeraldknight-sp.github.io/react-project-weather",
 	"scripts": {
 		"start": "react-scripts start",
 		"build": "react-scripts build",
@@ -10,7 +11,9 @@
 		"write": "prettier --write .",
 		"check": "prettier --check .",
 		"prepare": "husky install",
-		"lint-staged": "lint-staged"
+		"lint-staged": "lint-staged",
+		"vercel": "vercel --build-env CI=true",
+		"deploy": "gh-pages -d build"
 	},
 	"dependencies": {
 		"@testing-library/jest-dom": "^5.14.1",
@@ -39,6 +42,7 @@
 		"eslint-plugin-jsx-a11y": "^6.7.1",
 		"eslint-plugin-prettier": "^4.2.1",
 		"eslint-plugin-react": "^7.32.2",
+		"gh-pages": "^5.0.0",
 		"husky": "^8.0.3",
 		"jest": "^29.5.0",
 		"jest-environment-jsdom": "^29.5.0",
