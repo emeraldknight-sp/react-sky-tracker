@@ -1,6 +1,6 @@
 import { locationNameFormat } from "../components/utils/locationFormat";
 import { GeoLocationData } from "../interfaces/GeoLocationData";
-const locationString = process.env.LOCATION;
+const locationString = "Teresina";
 
 export const getForecastWeatherData = async (props: GeoLocationData) => {
 	const location = locationNameFormat(props, "string") || locationString;
