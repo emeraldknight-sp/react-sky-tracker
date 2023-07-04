@@ -6,7 +6,7 @@ export const StyledClimateDetails = styled.div`
 	grid-template-rows: repeat(2, 1fr);
 	justify-items: center;
 	gap: 1rem;
-	
+
 	background-color: var(--white);
 	color: var(--black);
 

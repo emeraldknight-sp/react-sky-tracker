@@ -34,7 +34,7 @@ export const StyledHome = styled.div`
 		}
 	}
 
-	.content--box-1, 
+	.content--box-1,
 	.content--box-2,
 	.content--box-4 {
 		flex: 1;
