@@ -17,10 +17,10 @@ export const SunMoonToggle = ({ data }: ForecastWeatherData) => {
 		(element) => element.date === currentDate,
 	)[0];
 
-	if(!forecastDayFiltered) {
-		return <div>Carregando...</div>
+	if (!forecastDayFiltered) {
+		return <div>Carregando...</div>;
 	}
-	
+
 	const { astro } = forecastDayFiltered;
 
 	const convertedSunrise = convertTo24HourFormat(astro.sunrise);
