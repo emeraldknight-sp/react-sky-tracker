@@ -34,7 +34,7 @@ export const SunMoonToggle = ({ data }: ForecastWeatherData) => {
 			{convertedSunrise <= currentHour && currentHour <= convertedSunset ? (
 				<>
 					<div className="astro__content--glassmorphism">
-						<h3 className="astro__title">Nascer e pôr</h3>
+						<h3 className="astro__title">Nascer e pôr do Sol</h3>
 					</div>
 					<div className="astro__content">
 						<div className="astro__info">
@@ -53,7 +53,9 @@ export const SunMoonToggle = ({ data }: ForecastWeatherData) => {
 				</>
 			) : (
 				<>
-					<h3 className="astro__title">Nascer e pôr</h3>
+					<div className="astro__content--glassmorphism">
+						<h3 className="astro__title">Nascer e pôr da Lua</h3>
+					</div>
 					<div className="astro__content">
 						<div className="astro__info">
 							<span className="astro__icon">
