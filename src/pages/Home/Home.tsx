@@ -1,131 +1,97 @@
-import "./Home.style.js";
+import { useEffect, useState } from "react";
+
+import { Header } from "../../components/layout/Header/";
+import { Main } from "../../components/layout/Main";
+import { Navbar } from "../../components/layout/Navbar";
+
+import { ClimateInformation } from "../../components/ui/cards/ClimateInformation/ClimateInformation";
+import { ClimateDetails } from "../../components/ui/cards/ClimateDetails";
+import { ClimatePreview } from "../../components/ui/cards/ClimatePreview";
+import { SunMoonToggle } from "../../components/ui/cards/SunMoonToggle";
+
+import { mockForecast } from "../../mock/mockForecast";
+import { mockCurrent } from "../../mock/mockCurrent";
+
+import { StyledHome } from "./Home.style.js";
+import { getLocation } from "../../api/getLocation";
+import { getForecastWeatherData } from "../../api/getForecastWeather";
+import { getCurrentWeatherData } from "../../api/getCurrentWeather";
 
 export const Home = () => {
+	const [locationData, setLocationData] = useState(null);
+	const [forecastWeatherData, setForecastWeatherData] = useState(null);
+	const [currentWeatherData, setCurrentWeatherData] = useState(null);
+
+	const fetchLocationData = async () => {
+		try {
+			const data = await getLocation();
+			setLocationData(data);
+		} catch (error) {
+			console.error("Erro ao obter dados de localização:", error);
+		}
+	};
+
+	useEffect(() => {
+		fetchLocationData();
+		const intervalId = setInterval(fetchLocationData, 5000);
+
+		return () => clearInterval(intervalId);
+	}, []);
+
+	const fetchForecastWeatherData = async () => {
+		if (locationData) {
+			try {
+				const data = await getForecastWeatherData(locationData);
+				setForecastWeatherData(data);
+			} catch (error) {
+				console.error("Erro ao obter dados de previsão do tempo:", error);
+			}
+		}
+	};
+
+	useEffect(() => {
+		if (locationData) {
+			fetchForecastWeatherData();
+		}
+	}, [locationData]);
+
+	const fetchCurrentWeatherData = async () => {
+		if (locationData) {
+			try {
+				const data = await getCurrentWeatherData(locationData);
+				setCurrentWeatherData(data);
+			} catch (error) {
+				console.error("Erro ao obter dados de previsão do tempo:", error);
+			}
+		}
+	};
+
+	useEffect(() => {
+		if (locationData) {
+			fetchCurrentWeatherData();
+		}
+	}, [locationData]);
+
 	return (
 		<>
-			<header className="header">
-				<div className="container">
-					<div className="content">
-						<figure>
-							<img src="" alt="Logotipo" />
-							<span>Project Weather</span>
-						</figure>
-						<button className="icon">Notificações</button>
+			<Header />
+			<Main>
+				<StyledHome>
+					<div className="content--box-1">
+						<ClimateInformation data={forecastWeatherData || mockForecast} />
 					</div>
-				</div>
-			</header>
-			<main className="main">
-				<div className="container">
-					<div className="content">
-						<div className="climate_information">
-							<div className="flex">
-								<div className="location">Localização</div>
-								<div className="temperature">Temperatura</div>
-								<div className="preview">
-									<span>
-										<div className="icon">icone</div>
-										mínima
-									</span>
-									<span>|</span>
-									<span>
-										<div className="icon">icone</div>
-										máxima
-									</span>
-								</div>
-							</div>
-							<div className="flex">
-								<div className="icon">icone</div>
-								<span>descrição</span>
-							</div>
-						</div>
-						<div className="climate_details">
-							<div className="climate_item">
-								<div className="icone">Icone</div>
-								<span className="index">Dados</span>
-								<span className="description">descrição</span>
-							</div>
-							<div className="climate_item">
-								<div className="icone">Icone</div>
-								<span className="index">Dados</span>
-								<span className="description">descrição</span>
-							</div>
-							<div className="climate_item">
-								<div className="icone">Icone</div>
-								<span className="index">Dados</span>
-								<span className="description">descrição</span>
-							</div>
-							<div className="climate_item">
-								<div className="icone">Icone</div>
-								<span className="index">Dados</span>
-								<span className="description">descrição</span>
-							</div>
-							<div className="climate_item">
-								<div className="icone">Icone</div>
-								<span className="index">Dados</span>
-								<span className="description">descrição</span>
-							</div>
-							<div className="climate_item">
-								<div className="icone">Icone</div>
-								<span className="index">Dados</span>
-								<span className="description">descrição</span>
-							</div>
-						</div>
-						<div className="climate_preview">
-							<div className="header">
-								<span className="today">Hoje</span>
-								<button className="toogle">Próximos 7 dias</button>
-							</div>
-							<div className="details">
-								<div className="item">
-									<div className="hour">00h00</div>
-									<div className="icon">Icone</div>
-									<div className="description">Descrição</div>
-								</div>
-								<div className="item">
-									<div className="hour">00h00</div>
-									<div className="icon">Icone</div>
-									<div className="description">Descrição</div>
-								</div>
-								<div className="item">
-									<div className="hour">00h00</div>
-									<div className="icon">Icone</div>
-									<div className="description">Descrição</div>
-								</div>
-								<div className="item">
-									<div className="hour">00h00</div>
-									<div className="icon">Icone</div>
-									<div className="description">Descrição</div>
-								</div>
-								<div className="item">
-									<div className="hour">00h00</div>
-									<div className="icon">Icone</div>
-									<div className="description">Descrição</div>
-								</div>
-								<div className="item">
-									<div className="hour">00h00</div>
-									<div className="icon">Icone</div>
-									<div className="description">Descrição</div>
-								</div>
-								<div className="item">
-									<div className="hour">00h00</div>
-									<div className="icon">Icone</div>
-									<div className="description">Descrição</div>
-								</div>
-							</div>
-						</div>
-						<div className="sun_moon_toogle">
-							<div className="sunrise">
-								<div className="icon">Icone</div>
-								<div className="hour">00h00</div>
-							</div>
-							<div className="sunset">
-								<div className="icon">Icone</div>
-								<div className="hour">05h00</div>
-							</div>
-						</div>
+					<div className="content--box-2">
+						<ClimateDetails data={currentWeatherData || mockCurrent} />
 					</div>
-				</div>
-			</main>
+					<div className="content--box-3">
+						<ClimatePreview data={forecastWeatherData || mockForecast} />
+					</div>
+					<div className="content--box-4">
+						<SunMoonToggle data={forecastWeatherData || mockForecast} />
+					</div>
+				</StyledHome>
+			</Main>
+			<Navbar />
 		</>
 	);
 };

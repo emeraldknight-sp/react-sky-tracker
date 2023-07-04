@@ -27,8 +27,10 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 - HTML5, CSS3, JS ES6+
 - [Node e Yarn](https://nodejs.org/)
-- [React.JS](https://react.dev/learn)
 - [Create react-app](https://Reactjs.org/docs/api-reference/create-React-app)
+- [React.JS](https://react.dev/learn)
+- [React Router DOM](https://reactrouter.com/en/main)
+- [Typescript](https://www.typescriptlang.org/docs/)
 - [Styled Components](https://styled-components.com/docs)
 - [Axios](https://axios-http.com/ptbr/docs/intro)
 - [ESLint](https://eslint.org/docs/latest/)

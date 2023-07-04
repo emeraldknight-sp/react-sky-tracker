@@ -10,7 +10,8 @@
 		"write": "prettier --write .",
 		"check": "prettier --check .",
 		"prepare": "husky install",
-		"lint-staged": "lint-staged"
+		"lint-staged": "lint-staged",
+		"vercel": "vercel --build-env CI=true"
 	},
 	"dependencies": {
 		"@testing-library/jest-dom": "^5.14.1",
@@ -20,6 +21,7 @@
 		"@types/node": "^20.3.2",
 		"@types/react": "^18.2.14",
 		"@types/react-dom": "^18.2.6",
+		"axios": "^1.4.0",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-icons": "^4.10.1",
@@ -31,8 +33,10 @@
 	"devDependencies": {
 		"@typescript-eslint/eslint-plugin": "^5.60.1",
 		"@typescript-eslint/parser": "^5.60.1",
+		"dotenv": "^16.3.1",
 		"eslint": "^8.43.0",
 		"eslint-config-prettier": "^8.8.0",
+		"eslint-import-resolver-typescript": "^3.5.5",
 		"eslint-plugin-import": "^2.27.5",
 		"eslint-plugin-jsx-a11y": "^6.7.1",
 		"eslint-plugin-prettier": "^4.2.1",
