@@ -12,10 +12,10 @@ import { SunMoonToggle } from "../../components/ui/cards/SunMoonToggle";
 import { mockForecast } from "../../mock/mockForecast";
 import { mockCurrent } from "../../mock/mockCurrent";
 
-import { StyledHome } from "./Home.style.js";
 import { getLocation } from "../../api/getLocation";
 import { getForecastWeatherData } from "../../api/getForecastWeather";
 import { getCurrentWeatherData } from "../../api/getCurrentWeather";
+import { StyledHome } from "./Home.style";
 
 export const Home = () => {
 	const [locationData, setLocationData] = useState(null);
