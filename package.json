@@ -2,7 +2,6 @@
 	"name": "react-project-weather",
 	"version": "0.1.0",
 	"private": true,
-	"homepage": "https://emeraldknight-sp.github.io/react-project-weather",
 	"scripts": {
 		"start": "react-scripts start",
 		"build": "react-scripts build",
@@ -15,13 +14,17 @@
 		"vercel": "vercel --build-env CI=true"
 	},
 	"dependencies": {
+		"@babel/core": "^7.0.0-0",
+		"@babel/plugin-syntax-flow": "^7.14.5",
+		"@babel/plugin-transform-react-jsx": "^7.14.9",
+		"@testing-library/dom": "^9.3.1",
 		"@testing-library/jest-dom": "^5.14.1",
 		"@testing-library/react": "^13.0.0",
 		"@testing-library/user-event": "^13.2.1",
 		"@types/jest": "^29.5.2",
 		"@types/node": "^20.3.2",
 		"@types/react": "^18.2.14",
-		"@types/react-dom": "^18.2.6",
+		"@types/react-dom": "^18.2.7",
 		"axios": "^1.4.0",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
