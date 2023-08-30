@@ -11,9 +11,9 @@ export const ClimatePreviewHourly = ({ data }: ClimatePreviewHourlyProps) => {
 	const forecastdayFiltered = data.forecastday.filter(
 		(forecast) => forecast.date === currentDate,
 	)[0];
-	
+
 	if (!forecastdayFiltered) {
-		return <div>Carregando...</div>
+		return <div>Carregando...</div>;
 	}
 
 	const { hour } = forecastdayFiltered;

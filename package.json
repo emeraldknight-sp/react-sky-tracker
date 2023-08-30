@@ -12,8 +12,7 @@
 		"check": "prettier --check .",
 		"prepare": "husky install",
 		"lint-staged": "lint-staged",
-		"vercel": "vercel --build-env CI=true",
-		"deploy": "gh-pages -d build"
+		"vercel": "vercel --build-env CI=true"
 	},
 	"dependencies": {
 		"@testing-library/jest-dom": "^5.14.1",
@@ -23,6 +22,7 @@
 		"@types/node": "^20.3.2",
 		"@types/react": "^18.2.14",
 		"@types/react-dom": "^18.2.6",
+		"axios": "^1.4.0",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-icons": "^4.10.1",

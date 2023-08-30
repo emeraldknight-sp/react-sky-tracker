@@ -10,7 +10,7 @@ export const ClimatePreviewWeekly = ({ data }: ClimatePreviewWeeklyProps) => {
 	const currentDate = formatDateToYYYYMMDD(new Date());
 
 	if (!data) {
-		return <div>Carregando...</div>
+		return <div>Carregando...</div>;
 	}
 
 	return (

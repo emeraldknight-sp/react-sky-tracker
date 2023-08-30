@@ -51,7 +51,7 @@ export const mockForecast = {
 	forecast: {
 		forecastday: [
 			{
-				date: "2023-06-30",
+				date: "2023-07-03",
 				date_epoch: 1688083200,
 				day: {
 					maxtemp_c: 23.3,
@@ -1029,7 +1029,7 @@ export const mockForecast = {
 				],
 			},
 			{
-				date: "2023-07-01",
+				date: "2023-07-04",
 				date_epoch: 1688169600,
 				day: {
 					maxtemp_c: 25.5,
@@ -2007,7 +2007,7 @@ export const mockForecast = {
 				],
 			},
 			{
-				date: "2023-07-02",
+				date: "2023-07-05",
 				date_epoch: 1688256000,
 				day: {
 					maxtemp_c: 22.8,

@@ -1,12 +1,16 @@
+import axios from "axios";
+
 export const getLocation = async () => {
 	try {
-		const res = await fetch(
-			`https://api.geoapify.com/v1/ipinfo?&apiKey=f1ca1a8db93f494aa202db77b6cd15c6`,
-		);
-		const data = await res.json();
+		const { data } = await axios.get("https://api.geoapify.com/v1/ipinfo", {
+			params: {
+				apiKey: "f1ca1a8db93f494aa202db77b6cd15c6",
+			},
+		});
 
 		return data;
-	} catch (err) {
-		console.error("Erro: ", err);
+	} catch (error) {
+		console.error("Erro ao obter dados de localização:", error);
+		throw error;
 	}
 };
