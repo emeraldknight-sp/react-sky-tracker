@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { FiActivity, FiHome, FiMap, FiSearch, FiUser } from "react-icons/fi";
-import { Container } from "../Container";
 import { StyledNavbar } from "./Navbar.style";
 
 export const Navbar = () => {
@@ -29,17 +28,15 @@ export const Navbar = () => {
 
 	return (
 		<StyledNavbar>
-			<Container>
-				<ul className="navbar__list">
-					{options.map((option, index) => (
-						<li key={index} className="navbar__item">
-							<Link to={`${option.link}`} className="navbar__link">
-								{option.icon}
-							</Link>
-						</li>
-					))}
-				</ul>
-			</Container>
+			<ul className="navbar__list">
+				{options.map((option, index) => (
+					<li key={index} className="navbar__item">
+						<Link to={`${option.link}`} className="navbar__link">
+							{option.icon}
+						</Link>
+					</li>
+				))}
+			</ul>
 		</StyledNavbar>
 	);
 };
