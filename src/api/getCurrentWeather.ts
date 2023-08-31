@@ -1,9 +1,9 @@
 import axios from "axios";
 
 import { locationNameFormat } from "../components/utils/locationFormat";
-import { GeoLocationData } from "../interfaces/GeoLocationData";
+import { GeoLocation } from "../interfaces/GeoLocation";
 
-export const getCurrentWeatherData = async (props: GeoLocationData) => {
+export const getCurrentWeatherData = async (props: GeoLocation) => {
 	const location = locationNameFormat(props, "string") || "Teresina";
 
 	try {
