@@ -1,5 +1,4 @@
 import { StyledSunMoonToggle } from "./SunMoonToggle.style";
-import { ForecastWeatherData } from "../../../../interfaces/ForecastWeatherData";
 import { formatDateToYYYYMMDD } from "../../../utils/formatDateToYYYYMMDD";
 import { convertTo24HourFormat } from "../../../utils/hourConvertFormat";
 import {
@@ -10,10 +9,14 @@ import {
 	WiSunset,
 } from "react-icons/wi";
 import { FiChevronRight } from "react-icons/fi";
+import { useContext } from "react";
+import { ForecastWeatherContext } from "../../../../context/ForecastWeatherContext";
 
-export const SunMoonToggle = ({ data }: ForecastWeatherData) => {
+export const SunMoonToggle = () => {
+	const { forecast } = useContext(ForecastWeatherContext);
+
 	const currentDate = formatDateToYYYYMMDD(new Date());
-	const forecastDayFiltered = data.forecast.forecastday.filter(
+	const forecastDayFiltered = forecast.forecastday.filter(
 		(element) => element.date === currentDate,
 	)[0];
 
@@ -22,7 +25,6 @@ export const SunMoonToggle = ({ data }: ForecastWeatherData) => {
 	}
 
 	const { astro } = forecastDayFiltered;
-
 
 	const convertedSunrise = convertTo24HourFormat(astro.sunrise);
 	const convertedSunset = convertTo24HourFormat(astro.sunset);
