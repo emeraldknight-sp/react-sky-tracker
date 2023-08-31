@@ -5,6 +5,9 @@ import { App } from "./App";
 import { GlobalStyles } from "./styles/global";
 import { Metric } from "web-vitals";
 import { reportWebVitals } from "./reportWebVitals";
+import { LocationProvider } from "./context/LocationContext";
+import { ForecastWeatherProvider } from "./context/ForecastWeatherContext";
+import { CurrentWeatherProvider } from "./context/CurrentWeatherContext";
 
 const rootElement = document.getElementById("root");
 const handleWebVitals = (metric: Metric) => {
@@ -15,8 +18,14 @@ if (rootElement) {
 	const root = ReactDOM.createRoot(rootElement);
 	root.render(
 		<React.StrictMode>
-			<GlobalStyles />
-			<App />
+			<LocationProvider>
+				<ForecastWeatherProvider>
+					<CurrentWeatherProvider>
+						<GlobalStyles />
+						<App />
+					</CurrentWeatherProvider>
+				</ForecastWeatherProvider>
+			</LocationProvider>
 		</React.StrictMode>,
 	);
 } else {
