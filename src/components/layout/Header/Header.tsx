@@ -1,19 +1,18 @@
-import { Logo } from "../../ui/Logo";
-import { Container } from "../Container";
-import { StyledHeader } from "./Header.style";
-
 import { FiBell } from "react-icons/fi";
+import { Logo } from "../../ui/Logo";
+import { HeaderContent, StyledHeader } from "./Header.style";
+import { Container } from "../Container";
 
 export const Header = () => {
 	return (
 		<StyledHeader>
 			<Container>
-				<div className="content">
+				<HeaderContent>
 					<Logo />
 					<button className="header__button__icon">
 						<FiBell size={20} />
 					</button>
-				</div>
+				</HeaderContent>
 			</Container>
 		</StyledHeader>
 	);
