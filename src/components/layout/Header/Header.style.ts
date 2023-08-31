@@ -1,10 +1,10 @@
 import { styled } from "styled-components";
 
 export const StyledHeader = styled.header`
-	position: sticky;
+	/* position: sticky;
 	top: 0;
 	left: 0;
-	z-index: 100;
+	z-index: 100; */
 
 	background-color: var(--white);
 	max-width: 100vw;

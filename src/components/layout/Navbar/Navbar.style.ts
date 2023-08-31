@@ -1,14 +1,15 @@
 import { styled } from "styled-components";
 
 export const StyledNavbar = styled.nav`
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	position: sticky;
+	position: fixed;
 	bottom: 0;
 	left: 0;
+
 	background-color: var(--white);
 	border-top: 2px solid var(--primary-color);
+
+	width: 100%;
+	padding: 8px 0;
 
 	.navbar__list {
 		display: flex;
@@ -16,7 +17,7 @@ export const StyledNavbar = styled.nav`
 		justify-content: space-between;
 		align-items: center;
 		width: 90vw;
-		height: 73px;
+		margin: 0 auto;
 
 		.navbar__item {
 			display: flex;
@@ -34,7 +35,13 @@ export const StyledNavbar = styled.nav`
 		}
 	}
 
-	/* @media (min-width: 1024px) {
+	@media (min-width: 768px) {
+		.navbar__list {
+			width: 50vw;
+		}
+	}
+
+	@media (min-width: 1024px) {
 		display: none;
-	} */
+	}
 `;
