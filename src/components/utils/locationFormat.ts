@@ -1,7 +1,7 @@
-import { GeoLocationData } from "../../interfaces/GeoLocationData";
+import { GeoLocation } from "../../interfaces/GeoLocation";
 
 export const locationNameFormat = (
-	location: GeoLocationData,
+	location: GeoLocation,
 	outputType: string,
 ) => {
 	const cityName = location.city?.name;
