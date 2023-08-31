@@ -3,9 +3,13 @@ import { styled } from "styled-components";
 export const StyledHome = styled.div`
 	display: flex;
 	flex-direction: column;
-	gap: 1rem;
+	height: 100vh;
+`;
 
-	padding-bottom: 100px;
+export const ElementGroupHome = styled.section`
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
 
 	@media screen and (min-width: 768px) {
 		flex-direction: row;

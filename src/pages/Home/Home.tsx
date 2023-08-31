@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext } from "react";
 
 import { Header } from "../../components/layout/Header/";
 import { Main } from "../../components/layout/Main";
@@ -12,86 +12,46 @@ import { SunMoonToggle } from "../../components/ui/cards/SunMoonToggle";
 import { mockForecast } from "../../mock/mockForecast";
 import { mockCurrent } from "../../mock/mockCurrent";
 
-import { getLocation } from "../../api/getLocation";
-import { getForecastWeatherData } from "../../api/getForecastWeather";
-import { getCurrentWeatherData } from "../../api/getCurrentWeather";
-import { StyledHome } from "./Home.style";
+import { LocationContext } from "../../context/LocationContext";
+import { ForecastWeatherContext } from "../../context/ForecastWeatherContext";
+import { CurrentWeatherContext } from "../../context/CurrentWeatherContext";
+
+import { ElementGroupHome, StyledHome } from "./Home.style";
+import { Loading } from "../../components/layout/Loading";
 
 export const Home = () => {
-	const [locationData, setLocationData] = useState(null);
-	const [forecastWeatherData, setForecastWeatherData] = useState(null);
-	const [currentWeatherData, setCurrentWeatherData] = useState(null);
+	const location = useContext(LocationContext);
+	const forecastWeather = useContext(ForecastWeatherContext);
+	const currentWeather = useContext(CurrentWeatherContext);
 
-	const fetchLocationData = async () => {
-		try {
-			const data = await getLocation();
-			setLocationData(data);
-		} catch (error) {
-			console.error("Erro ao obter dados de localização:", error);
-		}
-	};
-
-	useEffect(() => {
-		fetchLocationData();
-		const intervalId = setInterval(fetchLocationData, 5000);
-
-		return () => clearInterval(intervalId);
-	}, []);
-
-	const fetchForecastWeatherData = async () => {
-		if (locationData) {
-			try {
-				const data = await getForecastWeatherData(locationData);
-				setForecastWeatherData(data);
-			} catch (error) {
-				console.error("Erro ao obter dados de previsão do tempo:", error);
-			}
-		}
-	};
-
-	useEffect(() => {
-		if (locationData) {
-			fetchForecastWeatherData();
-		}
-	}, [locationData]);
-
-	const fetchCurrentWeatherData = async () => {
-		if (locationData) {
-			try {
-				const data = await getCurrentWeatherData(locationData);
-				setCurrentWeatherData(data);
-			} catch (error) {
-				console.error("Erro ao obter dados de previsão do tempo:", error);
-			}
-		}
-	};
-
-	useEffect(() => {
-		if (locationData) {
-			fetchCurrentWeatherData();
-		}
-	}, [locationData]);
+	console.log("LOCATION", location);
+	console.log("FORECAST", forecastWeather);
+	console.log("CURRENT", currentWeather);
 
 	return (
-		<>
+		<StyledHome>
 			<Header />
 			<Main>
-				<StyledHome>
-					<div className="content--box-1">
-						<ClimateInformation data={forecastWeatherData || mockForecast} />
-					</div>
-					<div className="content--box-2">
-						<ClimateDetails data={currentWeatherData || mockCurrent} />
-					</div>
-					<div className="content--box-3">
-						<ClimatePreview data={forecastWeatherData || mockForecast} />
-					</div>
-					<div className="content--box-4">
-						<SunMoonToggle data={forecastWeatherData || mockForecast} />
-					</div>
-				</StyledHome>
+				{location ? (
+					<ElementGroupHome>
+						<div className="content--box-1">
+							<ClimateInformation data={mockForecast} />
+						</div>
+						<div className="content--box-2">
+							<ClimateDetails data={mockCurrent} />
+						</div>
+						<div className="content--box-3">
+							<ClimatePreview data={mockForecast} />
+						</div>
+						<div className="content--box-4">
+							<SunMoonToggle data={mockForecast} />
+						</div>
+					</ElementGroupHome>
+				) : (
+					<Loading />
+				)}
 			</Main>
 			<Navbar />
-		</>
+		</StyledHome>
 	);
 };
