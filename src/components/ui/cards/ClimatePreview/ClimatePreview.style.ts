@@ -35,7 +35,7 @@ export const StyledClimatePreview = styled.div`
 		display: flex;
 		flex-direction: row;
 		gap: 1rem;
-		padding: 1rem;
+		padding: 1rem 0;
 
 		.climate-preview__list {
 			display: flex;
