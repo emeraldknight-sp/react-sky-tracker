@@ -8,11 +8,11 @@ import {
 import { StyledClimateDetails } from "./ClimateDetails.style";
 import { MdWaves } from "react-icons/md";
 import { airQualityAverage } from "../../../utils/airQualityAverage";
-import { CurrentWeatherData } from "../../../../interfaces/CurrentWeatherData";
+import { useContext } from "react";
+import { CurrentWeatherContext } from "../../../../context/CurrentWeatherContext";
 
-export const ClimateDetails = ({ data }: CurrentWeatherData) => {
-	const { current } = data;
-
+export const ClimateDetails = () => {
+	const { current } = useContext(CurrentWeatherContext);
 	const aqi = airQualityAverage(current.air_quality);
 
 	const items = [

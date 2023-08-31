@@ -1,10 +1,12 @@
 import { FiTrendingDown, FiTrendingUp } from "react-icons/fi";
 import { StyledClimateInformation } from "./ClimateInformation.style";
-import { ForecastWeatherData } from "../../../../interfaces/ForecastWeatherData";
 import { formatDateToYYYYMMDD } from "../../../utils/formatDateToYYYYMMDD";
+import { useContext } from "react";
+import { ForecastWeatherContext } from "../../../../context/ForecastWeatherContext";
 
-export const ClimateInformation = ({ data }: ForecastWeatherData) => {
-	const { location, current, forecast } = data;
+export const ClimateInformation = () => {
+	const {location, current, forecast} = useContext(ForecastWeatherContext)
+
 	const currentDate = formatDateToYYYYMMDD(new Date());
 	const minTemp = Math.round(
 		Number(
