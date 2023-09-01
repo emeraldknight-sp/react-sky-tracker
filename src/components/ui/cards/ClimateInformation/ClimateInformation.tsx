@@ -24,17 +24,45 @@ export const ClimateInformation = () => {
 	const feelsLike = Math.round(current.feelslike_c);
 	const { icon, text } = current.condition;
 
-	const climateClassName = `${
-		temp_c <= 10
-			? "climate-info--snow"
-			: temp_c <= 20
-			? "climate-info--cloudy"
-			: temp_c <= 30
-			? "climate-info--sunny"
-			: temp_c >= 39
-			? "climate-info--hot"
-			: ""
-	}`;
+	const termsToCheck = [
+		"chuva",
+		"neve",
+		"gelo",
+		"tempestade",
+		"granizo",
+		"vento",
+	];
+
+	const isRaining = termsToCheck.some((term) =>
+		text.toLowerCase().includes(term),
+	);
+
+	const temperatureClassMap = {
+		cold: "climate-info--snow",
+		cool: "climate-info--cloudy",
+		warm: "climate-info--sunny",
+		hot: "climate-info--hot",
+		rain: "climate-info--rain",
+		default: "climate-info--default",
+	};
+
+	const getTemperatureClassName = (temperature: number, rain: boolean) => {
+		if (0 <= temperature && temperature <= 10) {
+			return temperatureClassMap.cold;
+		} else if (temperature && rain) {
+			return temperatureClassMap.rain;
+		} else if (11 <= temperature && temperature <= 20) {
+			return temperatureClassMap.cool;
+		} else if (21 <= temperature && temperature <= 30) {
+			return temperatureClassMap.warm;
+		} else if (31 <= temperature && temperature <= 39) {
+			return temperatureClassMap.hot;
+		} else {
+			return temperatureClassMap.default;
+		}
+	};
+
+	const climateClassName = getTemperatureClassName(temp_c, isRaining);
 
 	return (
 		<StyledClimateInformation className={climateClassName}>

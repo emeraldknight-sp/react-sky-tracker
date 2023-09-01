@@ -15,28 +15,29 @@ export const StyledClimateInformation = styled.div`
 		background: var(--snow);
 		background: linear-gradient(45deg, var(--snow) 0%, var(--green-200) 100%);
 	}
+
 	&.climate-info--cloudy {
 		background: var(--cloudy);
-		background: linear-gradient(
-			45deg,
-			var(--cloudy) 0%,
-			var(--snow) 100%
-		);
+		background: linear-gradient(45deg, var(--cloudy) 0%, var(--snow) 100%);
 	}
+
 	&.climate-info--sunny {
 		background: var(--sunny);
-		background: linear-gradient(
-			45deg,
-			var(--sunny) 0%,
-			var(--yellow-900) 100%
-		);
+		background: linear-gradient(45deg, var(--sunny) 0%, var(--yellow-900) 100%);
 	}
+
 	&.climate-info--hot {
 		background: var(--hot);
 		background: linear-gradient(45deg, var(--hot) 0%, var(--yellow-900) 100%);
 	}
+
 	&.climate-info--rain {
 		background: var(--rain);
+		background: linear-gradient(45deg, var(--snow) 0%, var(--purple-700) 100%);
+	}
+
+	&.climate-info--default {
+		background: var(--snow);
 	}
 
 	.climate-info__container {
