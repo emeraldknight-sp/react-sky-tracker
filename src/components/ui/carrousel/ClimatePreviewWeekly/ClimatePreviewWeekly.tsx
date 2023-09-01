@@ -1,4 +1,5 @@
 import { ForecastDay } from "../../../../interfaces/ForecastDay";
+import { Loading } from "../../../layout/Loading";
 import { formatDateToYYYYMMDD } from "../../../utils/formatDateToYYYYMMDD";
 import { StyledClimatePreviewWeekly } from "./ClimatePreviewWeekly.style";
 
@@ -10,7 +11,7 @@ export const ClimatePreviewWeekly = ({ data }: ClimatePreviewWeeklyProps) => {
 	const currentDate = formatDateToYYYYMMDD(new Date());
 
 	if (!data) {
-		return <div>Carregando...</div>;
+		return <Loading />;
 	}
 
 	return (
@@ -47,9 +48,6 @@ export const ClimatePreviewWeekly = ({ data }: ClimatePreviewWeeklyProps) => {
 								alt="weather condition icon"
 							/>
 						</figure>
-						<div className="weekly-box">
-							<p className="weekly-box__text">{text}</p>
-						</div>
 					</StyledClimatePreviewWeekly>
 				);
 			})}
