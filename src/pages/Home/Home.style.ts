@@ -6,45 +6,49 @@ export const StyledHome = styled.div`
 	height: 100vh;
 `;
 
-export const ElementGroupHome = styled.section`
+export const FlexContainer = styled.section`
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
 
-	@media screen and (min-width: 768px) {
-		flex-direction: row;
-		flex-wrap: wrap;
+	.flex-item {
+		flex: 1;
+	}
+
+	.flex-item:nth-child(3) {
+		overflow: hidden;
 	}
 
 	@media screen and (min-width: 1024px) {
 		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 1.75rem;
 
-		.content--box-1 {
+		.flex-item{
+			flex: none;
+		}
+
+		.flex-item:nth-child(1),
+		.flex-item:nth-child(3) {
+			width: 48%;
+		}
+
+		.flex-item:nth-child(1) {
 			order: 1;
-			width: 50%;
 		}
 
-		.content--box-2 {
-			order: 2;
-		}
-
-		.content--box-3 {
+		.flex-item:nth-child(2) {
 			order: 3;
 			width: 100%;
 		}
 
-		.content--box-4 {
-			order: 4;
+		.flex-item:nth-child(3) {
+			order: 2;
 		}
-	}
 
-	.content--box-1,
-	.content--box-2,
-	.content--box-4 {
-		flex: 1;
-	}
-
-	.content--box-3 {
-		overflow: hidden;
+		.flex-item:nth-child(4) {
+			order: 4;
+			width: 100%;
+		}
 	}
 `;

@@ -11,7 +11,7 @@ import { SunMoonToggle } from "../../components/ui/cards/SunMoonToggle";
 
 import { LocationContext } from "../../context/LocationContext";
 
-import { ElementGroupHome, StyledHome } from "./Home.style";
+import { FlexContainer, StyledHome } from "./Home.style";
 import { Loading } from "../../components/layout/Loading";
 
 export const Home = () => {
@@ -22,20 +22,20 @@ export const Home = () => {
 			<Header />
 			<Main>
 				{location ? (
-					<ElementGroupHome>
-						<div className="content--box-1">
+					<FlexContainer>
+						<div className="flex-item">
 							<ClimateInformation />
 						</div>
-						<div className="content--box-2">
+						<div className="flex-item">
 							<ClimateDetails />
 						</div>
-						<div className="content--box-3">
+						<div className="flex-item">
 							<ClimatePreview />
 						</div>
-						<div className="content--box-4">
+						<div className="flex-item">
 							<SunMoonToggle />
 						</div>
-					</ElementGroupHome>
+					</FlexContainer>
 				) : (
 					<Loading />
 				)}
