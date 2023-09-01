@@ -20,6 +20,7 @@ export const StyledClimatePreview = styled.div`
 			cursor: pointer;
 			padding: 0.625rem;
 			border-radius: 1rem;
+			outline: none;
 		}
 
 		.button--text {
