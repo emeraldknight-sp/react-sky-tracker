@@ -1,15 +1,11 @@
 import { styled } from "styled-components";
 
 export const StyledHeader = styled.header`
-	/* position: sticky;
-	top: 0;
-	left: 0;
-	z-index: 100; */
-
 	background-color: var(--white);
 	max-width: 100vw;
 	padding: 1rem 0;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+	border-bottom: 1px solid var(--base-gray);
 
 	.header__button__icon {
 		display: flex;
@@ -24,8 +20,10 @@ export const StyledHeader = styled.header`
 	}
 `;
 
-export const HeaderContent = styled.section`
+export const HeaderContainer = styled.section`
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
+	max-width: 90vw;
+	margin: 0 auto;
 `;
