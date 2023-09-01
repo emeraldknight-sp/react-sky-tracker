@@ -5,14 +5,29 @@ export const StyledClimateInformation = styled.div`
 	flex-direction: row;
 	justify-content: space-between;
 	padding: 1rem;
-	background-color: var(--snow);
 	border-radius: var(--rounded-md);
 	box-shadow: var(--shadow-md);
 	color: var(--white);
 	font-family: var(--fontFamilyLato);
 	text-align: center;
 
-	.climate-info {
+	&.climate-info--snow {
+		background-color: var(--snow);
+	}
+	&.climate-info--cloudy {
+		background-color: var(--cloudy);
+	}
+	&.climate-info--sunny {
+		background-color: var(--sunny);
+	}
+	&.climate-info--hot {
+		background-color: var(--hot);
+	}
+	&.climate-info--rain {
+		background-color: var(--rain);
+	}
+
+	.climate-info__container {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;

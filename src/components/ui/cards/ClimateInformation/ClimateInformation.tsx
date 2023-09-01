@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { ForecastWeatherContext } from "../../../../context/ForecastWeatherContext";
 
 export const ClimateInformation = () => {
-	const {location, current, forecast} = useContext(ForecastWeatherContext)
+	const { location, current, forecast } = useContext(ForecastWeatherContext);
 
 	const currentDate = formatDateToYYYYMMDD(new Date());
 	const minTemp = Math.round(
@@ -24,9 +24,17 @@ export const ClimateInformation = () => {
 	const feelsLike = Math.round(current.feelslike_c);
 	const { icon, text } = current.condition;
 
+	const climateClassName = `${
+		temp_c <= 20
+			? "climate-info--snow"
+			: temp_c <= 30
+			? "climate-info--cloudy"
+			: temp_c <= 40 ?? "climate-info--hot"
+	}`;
+
 	return (
-		<StyledClimateInformation>
-			<div className="climate-info">
+		<StyledClimateInformation className={climateClassName}>
+			<div className="climate-info__container">
 				<p className="climate-info__location">{`${location.name}, ${location.country}`}</p>
 				<p className="climate-info__temperature">{`${temp_c}`}ºC</p>
 				<div className="climate-info__preview">
@@ -45,7 +53,7 @@ export const ClimateInformation = () => {
 				</div>
 				<p className="climate-info__feelslike">{`Sensação Térmica: ${feelsLike}ºC`}</p>
 			</div>
-			<div className="climate-info">
+			<div className="climate-info__container">
 				<figure>
 					<img src={`http:${icon}`} alt="condition weather" />
 				</figure>
