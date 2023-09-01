@@ -17,7 +17,7 @@ export const ClimatePreviewWeekly = ({ data }: ClimatePreviewWeeklyProps) => {
 	return (
 		<>
 			{data.map(({ date, day }, index) => {
-				const { text, icon } = day.condition;
+				const { icon } = day.condition;
 				const avgTemp = Math.round(day.avgtemp_c);
 
 				const isCurrentDay = date === currentDate;
