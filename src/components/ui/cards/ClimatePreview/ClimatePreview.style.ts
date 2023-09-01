@@ -35,15 +35,29 @@ export const StyledClimatePreview = styled.div`
 		display: flex;
 		flex-direction: row;
 		gap: 1rem;
-		padding: 1rem 0;
-
+		
 		.climate-preview__list {
 			display: flex;
 			flex-direction: row;
 			gap: 1rem;
 			width: 100%;
+			padding: 0.5rem;
 		}
 
 		overflow-x: scroll;
+	}
+
+	::-webkit-scrollbar {
+		width: 20px;
+	}
+
+	::-webkit-scrollbar-track {
+		border-radius: 10px;
+	}
+
+	::-webkit-scrollbar-thumb {
+		border: 5px solid var(--white);
+		background: var(--base-gray);
+		border-radius: 10px;
 	}
 `;

@@ -34,6 +34,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+	font-family: var(--fontFamilyLato);
 }
 
 /* HTML5 display-role reset for older browsers */
