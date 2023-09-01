@@ -8,6 +8,7 @@ import { reportWebVitals } from "./reportWebVitals";
 import { LocationProvider } from "./context/LocationContext";
 import { ForecastWeatherProvider } from "./context/ForecastWeatherContext";
 import { CurrentWeatherProvider } from "./context/CurrentWeatherContext";
+import { Toaster } from "react-hot-toast";
 
 const rootElement = document.getElementById("root");
 const handleWebVitals = (metric: Metric) => {
@@ -21,6 +22,7 @@ if (rootElement) {
 			<LocationProvider>
 				<ForecastWeatherProvider>
 					<CurrentWeatherProvider>
+						<Toaster position="bottom-right" reverseOrder={false} />
 						<GlobalStyles />
 						<App />
 					</CurrentWeatherProvider>
