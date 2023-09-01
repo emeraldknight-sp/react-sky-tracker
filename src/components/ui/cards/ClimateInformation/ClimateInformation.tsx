@@ -29,7 +29,9 @@ export const ClimateInformation = () => {
 			? "climate-info--snow"
 			: temp_c <= 30
 			? "climate-info--cloudy"
-			: temp_c <= 40 ?? "climate-info--hot"
+			: temp_c <= 40
+			? "climate-info--hot"
+			: "climate-info--rain"
 	}`;
 
 	return (

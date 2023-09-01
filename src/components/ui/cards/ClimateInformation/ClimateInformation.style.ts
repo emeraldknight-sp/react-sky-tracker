@@ -77,7 +77,6 @@ export const StyledClimateInformation = styled.div`
 	}
 
 	@media screen and (min-width: 768px) {
-		/* width: 18rem; */
-		height: 8rem;
+		height: 9rem;
 	}
 `;
