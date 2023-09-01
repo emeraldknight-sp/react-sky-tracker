@@ -12,19 +12,31 @@ export const StyledClimateInformation = styled.div`
 	text-align: center;
 
 	&.climate-info--snow {
-		background-color: var(--snow);
+		background: var(--snow);
+		background: linear-gradient(45deg, var(--snow) 0%, var(--green-200) 100%);
 	}
 	&.climate-info--cloudy {
-		background-color: var(--cloudy);
+		background: var(--cloudy);
+		background: linear-gradient(
+			45deg,
+			var(--cloudy) 0%,
+			var(--snow) 100%
+		);
 	}
 	&.climate-info--sunny {
-		background-color: var(--sunny);
+		background: var(--sunny);
+		background: linear-gradient(
+			45deg,
+			var(--sunny) 0%,
+			var(--yellow-900) 100%
+		);
 	}
 	&.climate-info--hot {
-		background-color: var(--hot);
+		background: var(--hot);
+		background: linear-gradient(45deg, var(--hot) 0%, var(--yellow-900) 100%);
 	}
 	&.climate-info--rain {
-		background-color: var(--rain);
+		background: var(--rain);
 	}
 
 	.climate-info__container {
@@ -38,11 +50,13 @@ export const StyledClimateInformation = styled.div`
 	.climate-info__location {
 		font-size: var(--text-sm);
 		line-height: var(--line-height-sm);
+		font-weight: 400;
 	}
 
 	.climate-info__temperature {
 		font-size: var(--text-5xl);
 		line-height: var(--line-height-5xl);
+		font-weight: 600;
 	}
 
 	.climate-info__details {
@@ -53,7 +67,7 @@ export const StyledClimateInformation = styled.div`
 	.climate-info__preview {
 		display: flex;
 		flex-direction: row;
-		gap: 0.25rem;
+		gap: 1.25rem;
 
 		.climate-info__preview-temp {
 			display: flex;
@@ -61,6 +75,7 @@ export const StyledClimateInformation = styled.div`
 			gap: 0.25rem;
 			font-size: var(--text-xs);
 			line-height: var(--line-height-xs);
+			font-weight: 400;
 
 			.climate-info__preview-temp--icon {
 				display: flex;
@@ -77,6 +92,6 @@ export const StyledClimateInformation = styled.div`
 	}
 
 	@media screen and (min-width: 768px) {
-		height: 9rem;
+		height: 10.5rem;
 	}
 `;

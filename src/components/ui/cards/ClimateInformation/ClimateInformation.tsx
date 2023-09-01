@@ -1,4 +1,4 @@
-import { FiTrendingDown, FiTrendingUp } from "react-icons/fi";
+import { FiArrowDown, FiArrowUp } from "react-icons/fi";
 import { StyledClimateInformation } from "./ClimateInformation.style";
 import { formatDateToYYYYMMDD } from "../../../utils/formatDateToYYYYMMDD";
 import { useContext } from "react";
@@ -25,13 +25,15 @@ export const ClimateInformation = () => {
 	const { icon, text } = current.condition;
 
 	const climateClassName = `${
-		temp_c <= 20
+		temp_c <= 10
 			? "climate-info--snow"
-			: temp_c <= 30
+			: temp_c <= 20
 			? "climate-info--cloudy"
-			: temp_c <= 40
+			: temp_c <= 30
+			? "climate-info--sunny"
+			: temp_c >= 39
 			? "climate-info--hot"
-			: "climate-info--rain"
+			: ""
 	}`;
 
 	return (
@@ -42,15 +44,15 @@ export const ClimateInformation = () => {
 				<div className="climate-info__preview">
 					<p className="climate-info__preview-temp">
 						<span className="climate-info__preview-temp--icon">
-							<FiTrendingDown />
+							<FiArrowDown />
 						</span>
-						{`Mín: ${minTemp}ºC`}
+						{`${minTemp}ºC`}
 					</p>
 					<p className="climate-info__preview-temp">
 						<span className="climate-info__preview-temp--icon">
-							<FiTrendingUp />
+							<FiArrowUp />
 						</span>
-						{`Máx: ${maxTemp}ºC`}
+						{`${maxTemp}ºC`}
 					</p>
 				</div>
 				<p className="climate-info__feelslike">{`Sensação Térmica: ${feelsLike}ºC`}</p>
