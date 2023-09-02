@@ -1,4 +1,6 @@
-export const mockCurrent = {
+import { CurrentWeather } from "../interfaces/CurrentWeather";
+
+export const mockCurrent: CurrentWeather = {
 	location: {
 		name: "Sao Paulo",
 		region: "Sao Paulo",
