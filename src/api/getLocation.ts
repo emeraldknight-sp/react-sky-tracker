@@ -2,15 +2,13 @@ import axios from "axios";
 
 export const getLocation = async () => {
 	try {
-		const { data } = await axios.get("https://api.geoapify.com/v1/ipinfo", {
-			params: {
-				apiKey: "f1ca1a8db93f494aa202db77b6cd15c6",
-			},
-		});
+		const { data } = await axios.get(
+			`https://api.weatherapi.com/v1/ip.json?key=f2345c34a365497db90123644230106&q=auto:ip`,
+		);
 
 		return data;
 	} catch (error) {
-		console.error("Erro ao obter dados de localização:", error);
+		console.error("Erro: ", error);
 		throw error;
 	}
 };
