@@ -11,7 +11,7 @@ export const StyledDividerGroup = styled.div`
 
 export const StyledDivider = styled.div`
 	border-bottom: 1px solid var(--charcoal);
-	width: 100%;
+	flex: 1;
 `;
 
 export const StyledContent = styled.span`
