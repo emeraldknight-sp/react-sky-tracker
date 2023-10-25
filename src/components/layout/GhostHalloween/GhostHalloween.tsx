@@ -7,5 +7,5 @@ export const GhostHalloween = () => {
 		autoplay: true,
 		animationData: ghost,
 	};
-	return <Lottie options={defaultOptions} width={100} height={100} />;
+	return <Lottie options={defaultOptions} width={50} height={50} />;
 };
