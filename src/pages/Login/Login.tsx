@@ -28,6 +28,8 @@ export const Login = () => {
 								type="text"
 								placeholder="Digite o seu email"
 								aria-label="Digite o seu email"
+								autoComplete="email"
+								aria-autocomplete="none"
 								aria-required
 								required
 							/>
@@ -40,6 +42,8 @@ export const Login = () => {
 								type="password"
 								placeholder="Digite a sua senha"
 								aria-label="Digite a sua senha"
+								autoComplete="current-password"
+								aria-autocomplete="none"
 								aria-required
 								required
 							/>
