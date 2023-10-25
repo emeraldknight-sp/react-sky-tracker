@@ -6,7 +6,7 @@ export const StyledMenu = styled.nav`
 	@media (min-width: 1024px) {
 		display: flex;
 		flex-direction: row;
-    justify-content: flex-end;
+		justify-content: flex-end;
 		margin-right: 1rem;
 		align-items: center;
 		gap: 1rem;

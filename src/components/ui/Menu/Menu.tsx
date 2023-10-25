@@ -31,11 +31,13 @@ export const Menu = () => {
 	const navigate = useNavigate();
 
 	const handleClick = (urlParam: string) => {
-		if (urlParam != "/") {
+		if (urlParam === "/account") {
+			navigate("/account");
+		} else if (urlParam === "/") {
+			navigate("/");
+		} else {
 			toast.error("Em desenvolvimento", { id: urlParam });
 		}
-
-		navigate("/");
 	};
 
 	return (
