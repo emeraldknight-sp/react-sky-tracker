@@ -4,10 +4,18 @@ export const StyledLogin = styled.section`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	align-items: center;
 	gap: 2rem;
 	max-width: 288px;
 	margin: 0 auto;
-	padding: 1rem 0;
+
+	.page-title {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		gap: 1rem;
+	}
 
 	h2 {
 		font-size: var(--text-xl);
@@ -40,11 +48,12 @@ export const StyledLogin = styled.section`
 	}
 `;
 
-export const StyledForm = styled.form`
+export const StyledLoginForm = styled.form`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	gap: 1rem;
+	width: 100%;
 `;
 
 export const StyledInput = styled.div`
@@ -52,12 +61,12 @@ export const StyledInput = styled.div`
 	flex-direction: column;
 	gap: 0.5rem;
 
-	&.row {
+	&.flex-row {
 		flex-direction: row;
 	}
 `;
 
-export const StyledLoginButtonGroup = styled.div`
+export const StyledSocialLoginButtons = styled.div`
 	display: flex;
 	flex-direction: row;
 	justify-content: center;

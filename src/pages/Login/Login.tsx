@@ -1,16 +1,16 @@
+import { Button } from "../../components/ui/Button";
+import { Divider } from "../../components/layout/Divider";
+import { GhostHalloween } from "../../components/layout/GhostHalloween";
 import { Header } from "../../components/layout/Header";
 import { Main } from "../../components/layout/Main";
 import { Navbar } from "../../components/layout/Navbar";
-import { Button } from "../../components/ui/Button";
-import { GhostHalloween } from "../../components/layout/GhostHalloween";
 import { BsFacebook, BsGoogle, BsMicrosoft, BsTwitter } from "react-icons/bs";
 import {
-	StyledForm,
+	StyledLoginForm,
 	StyledInput,
 	StyledLogin,
-	StyledLoginButtonGroup,
+	StyledSocialLoginButtons,
 } from "./Login.style";
-import { Divider } from "../../components/layout/Divider";
 
 export const Login = () => {
 	return (
@@ -18,8 +18,11 @@ export const Login = () => {
 			<Header />
 			<Main>
 				<StyledLogin>
-					<h2>Acessar conta</h2>
-					<StyledForm action="">
+					<div className="page-title">
+						<GhostHalloween />
+						<h2>Acessar conta</h2>
+					</div>
+					<StyledLoginForm action="">
 						<StyledInput>
 							<label htmlFor="email">Email</label>
 							<input
@@ -48,7 +51,7 @@ export const Login = () => {
 								required
 							/>
 						</StyledInput>
-						<StyledInput className="row">
+						<StyledInput className="flex-row">
 							<input type="checkbox" name="remember" id="remember" />
 							<label htmlFor="remember">Lembrar de mim por 30 dias</label>
 						</StyledInput>
@@ -56,9 +59,9 @@ export const Login = () => {
 						<Button type="submit" size="lg" style="contained">
 							Entrar
 						</Button>
-					</StyledForm>
+					</StyledLoginForm>
 					<Divider>ou</Divider>
-					<StyledLoginButtonGroup>
+					<StyledSocialLoginButtons>
 						<Button type="button" size="lg" style="text">
 							<BsFacebook />
 						</Button>
@@ -71,8 +74,8 @@ export const Login = () => {
 						<Button type="button" size="lg" style="text">
 							<BsMicrosoft />
 						</Button>
-					</StyledLoginButtonGroup>
-					<GhostHalloween />
+					</StyledSocialLoginButtons>
+					{/* <GhostHalloween /> */}
 				</StyledLogin>
 			</Main>
 			<Navbar />
