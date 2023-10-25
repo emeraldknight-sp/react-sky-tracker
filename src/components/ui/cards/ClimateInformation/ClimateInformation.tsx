@@ -55,7 +55,7 @@ export const ClimateInformation = () => {
 			return temperatureClassMap.cool;
 		} else if (21 <= temperature && temperature <= 30) {
 			return temperatureClassMap.warm;
-		} else if (31 <= temperature && temperature <= 39) {
+		} else if (31 <= temperature) {
 			return temperatureClassMap.hot;
 		} else {
 			return temperatureClassMap.default;

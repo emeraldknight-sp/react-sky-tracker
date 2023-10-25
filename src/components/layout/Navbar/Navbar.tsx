@@ -21,7 +21,7 @@ export const Navbar = () => {
 			icon: <FiMap size={24} />,
 		},
 		{
-			link: "/",
+			link: "/account",
 			icon: <FiUser size={24} />,
 		},
 	];
