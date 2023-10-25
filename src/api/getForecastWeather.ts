@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const getForecastWeatherData = async () => {
-	const language = "pt"
+	const language = "pt";
 
 	try {
 		const { data } = await axios.get(

@@ -31,7 +31,6 @@ export const ClimatePreviewHourly = ({ data }: ClimatePreviewHourlyProps) => {
 
 	const now = new Date();
 
-
 	return (
 		<>
 			{hour.map((element, index) => {

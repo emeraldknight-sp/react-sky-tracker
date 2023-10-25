@@ -24,7 +24,7 @@ export const FlexContainer = styled.section`
 		flex-wrap: wrap;
 		gap: 1.75rem;
 
-		.flex-item{
+		.flex-item {
 			flex: none;
 		}
 

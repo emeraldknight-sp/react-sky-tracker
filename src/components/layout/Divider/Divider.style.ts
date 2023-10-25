@@ -16,7 +16,7 @@ export const StyledDivider = styled.div`
 
 export const StyledContent = styled.span`
 	font-size: var(--text-sm);
-  font-family: var(--fontFamilyLato);
-  line-height: var(--line-height-sm);
-  font-weight: 400;
+	font-family: var(--fontFamilyLato);
+	line-height: var(--line-height-sm);
+	font-weight: 400;
 `;
