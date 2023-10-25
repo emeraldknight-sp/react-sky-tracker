@@ -10,7 +10,7 @@ export const StyledButton = styled.button`
 	outline: none;
 
 	font-family: var(--fontFamilyLato);
-	font-size: var(--text-md);
+	font-size: var(--text-lg);
 	line-height: var(--line-height-md);
 	font-weight: 600;
 
