@@ -1,10 +1,10 @@
+import { BsFacebook, BsGoogle, BsMicrosoft, BsTwitter } from "react-icons/bs";
 import { Button } from "../../components/ui/Button";
 import { Divider } from "../../components/layout/Divider";
 import { GhostHalloween } from "../../components/layout/GhostHalloween";
 import { Header } from "../../components/layout/Header";
 import { Main } from "../../components/layout/Main";
 import { Navbar } from "../../components/layout/Navbar";
-import { BsFacebook, BsGoogle, BsMicrosoft, BsTwitter } from "react-icons/bs";
 import {
 	StyledLoginForm,
 	StyledInput,
