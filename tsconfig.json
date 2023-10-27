@@ -12,10 +12,6 @@
 		"noEmit": true,
 		"jsx": "react-jsx",
 		"outDir": "build",
-		"baseUrl": ".",
-		"paths": {
-			"@/*": ["src/*"]
-		},
 		"strictNullChecks": true,
 		"strictPropertyInitialization": true,
 		"moduleResolution": "node"
