@@ -1,18 +1,14 @@
-import { useContext } from "react";
-
+import { ClimateDetails } from "../../components/ui/cards/ClimateDetails";
+import { ClimateInformation } from "../../components/ui/cards/ClimateInformation/ClimateInformation";
+import { ClimatePreview } from "../../components/ui/cards/ClimatePreview";
+import { FlexContainer, StyledHome } from "./Home.style";
 import { Header } from "../../components/layout/Header/";
+import { Loading } from "../../components/layout/Loading";
+import { LocationContext } from "../../context/LocationContext";
 import { Main } from "../../components/layout/Main";
 import { Navbar } from "../../components/layout/Navbar";
-
-import { ClimateInformation } from "../../components/ui/cards/ClimateInformation/ClimateInformation";
-import { ClimateDetails } from "../../components/ui/cards/ClimateDetails";
-import { ClimatePreview } from "../../components/ui/cards/ClimatePreview";
 import { SunMoonToggle } from "../../components/ui/cards/SunMoonToggle";
-
-import { LocationContext } from "../../context/LocationContext";
-
-import { FlexContainer, StyledHome } from "./Home.style";
-import { Loading } from "../../components/layout/Loading";
+import { useContext } from "react";
 
 export const Home = () => {
 	const location = useContext(LocationContext);
