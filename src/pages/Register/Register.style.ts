@@ -73,3 +73,10 @@ export const StyledSocialRegisterButtons = styled.div`
 	align-items: center;
 	gap: 1rem;
 `;
+
+export const StyledButtonGroupForm = styled.div`
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+`;

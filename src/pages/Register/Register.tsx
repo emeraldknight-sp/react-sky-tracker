@@ -6,16 +6,18 @@ import { GhostHalloween } from "../../components/layout/GhostHalloween";
 import { Header } from "../../components/layout/Header";
 import { Main } from "../../components/layout/Main";
 import { Navbar } from "../../components/layout/Navbar";
-import { registrationSchema } from "../../components/utils/registrationSchema";
 import {
+	StyledButtonGroupForm,
 	StyledInput,
 	StyledRegister,
 	StyledRegisterForm,
 	StyledSocialRegisterButtons,
 } from "./Register.style";
 import { UserDataContext } from "../../context/UserDataContext";
-import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+import { verifyUserRegister } from "../../middlewares/verifyUserRegister.middleware";
+import { registrationSchema } from "../../components/utils/registrationSchema";
 
 export const Register = () => {
 	const { userData, setUserData } = useContext(UserDataContext);
@@ -33,15 +35,19 @@ export const Register = () => {
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
-		try {
-			const validatedForm = registrationSchema.parse(userData);
-			localStorage.setItem("user", JSON.stringify(userData));
-			toast.success("Conta criada com sucesso");
+		const verifiedUser = verifyUserRegister(userData);
+		const validatedForm = registrationSchema.safeParse(userData);
+
+		if (verifiedUser && validatedForm.success) {
+			toast.success("Conta criada com sucesso", {
+				id: "success to create account",
+			});
 			navigate("/login");
-			console.log("Dados do formulário:", validatedForm);
-		} catch (err) {
-			console.error(err);
 		}
+	};
+
+	const handleClick = () => {
+		navigate("/login");
 	};
 
 	return (
@@ -114,9 +120,19 @@ export const Register = () => {
 								onChange={handleChange}
 							/>
 						</StyledInput>
-						<Button type="submit" size="lg" style="contained">
-							Criar conta
-						</Button>
+						<StyledButtonGroupForm>
+							<Button
+								type="button"
+								size="lg"
+								style="text"
+								onClick={handleClick}
+							>
+								Fazer login
+							</Button>
+							<Button type="submit" size="lg" style="contained">
+								Criar conta
+							</Button>
+						</StyledButtonGroupForm>
 					</StyledRegisterForm>
 					<Divider>registre-se com</Divider>
 					<StyledSocialRegisterButtons>
