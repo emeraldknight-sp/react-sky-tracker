@@ -10,9 +10,57 @@ import {
 	StyledInput,
 	StyledLogin,
 	StyledSocialLoginButtons,
+	StyledLoginButtonForm,
 } from "./Login.style";
+import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+import { ChangeEvent, FormEvent, useState } from "react";
+import { verifyUserCredentials } from "../../middlewares/verifyUserCredentials.middleware";
+import { loginSchema } from "../../components/utils/loginSchema";
+
+export interface ConfigSession {
+	email: string;
+	password: string;
+	remember: boolean;
+	isLogged: boolean;
+}
 
 export const Login = () => {
+	const [session, setSession] = useState<ConfigSession>({
+		email: "",
+		password: "",
+		remember: false,
+		isLogged: false,
+	});
+
+	const navigate = useNavigate();
+
+	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+		const { name, value, type, checked } = e.target;
+
+		setSession({
+			...session,
+			[name]: type === "checkbox" ? checked : value,
+			isLogged: !session.isLogged,
+		});
+	};
+
+	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+
+		const verifiedUser = verifyUserCredentials(session);
+		const validatedLogin = loginSchema.safeParse(session);
+
+		if (verifiedUser && validatedLogin.success) {
+			navigate("/account")
+			toast("Bem-vindo!", { id: "welcome", icon: "👋" });
+		}
+	};
+
+	const handleClick = () => {
+		navigate("/register");
+	};
+
 	return (
 		<>
 			<Header />
@@ -22,7 +70,7 @@ export const Login = () => {
 						<GhostHalloween />
 						<h2>Acessar conta</h2>
 					</div>
-					<StyledLoginForm action="">
+					<StyledLoginForm action="" onSubmit={handleSubmit}>
 						<StyledInput>
 							<label htmlFor="email">Email</label>
 							<input
@@ -35,6 +83,8 @@ export const Login = () => {
 								aria-autocomplete="none"
 								aria-required
 								required
+								value={session.email}
+								onChange={handleChange}
 							/>
 						</StyledInput>
 						<StyledInput>
@@ -49,16 +99,34 @@ export const Login = () => {
 								aria-autocomplete="none"
 								aria-required
 								required
+								value={session.password}
+								onChange={handleChange}
 							/>
 						</StyledInput>
 						<StyledInput className="flex-row">
-							<input type="checkbox" name="remember" id="remember" />
+							<input
+								type="checkbox"
+								name="remember"
+								id="remember"
+								checked={session.remember}
+								onChange={handleChange}
+							/>
 							<label htmlFor="remember">Lembrar de mim por 30 dias</label>
 						</StyledInput>
 						<a href="http://">Esqueci minha senha</a>
-						<Button type="submit" size="lg" style="contained">
-							Entrar
-						</Button>
+						<StyledLoginButtonForm>
+							<Button type="submit" size="lg" style="contained">
+								Entrar
+							</Button>
+							<Button
+								type="button"
+								size="lg"
+								style="text"
+								onClick={handleClick}
+							>
+								Criar conta
+							</Button>
+						</StyledLoginButtonForm>
 					</StyledLoginForm>
 					<Divider>ou</Divider>
 					<StyledSocialLoginButtons>
