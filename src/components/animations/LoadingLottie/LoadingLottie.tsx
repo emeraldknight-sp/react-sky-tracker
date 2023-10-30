@@ -1,7 +1,7 @@
 import Lottie from "react-lottie";
 import loading from "../../../assets/animation-loading.json";
 
-export const Loading = () => {
+export const LoadingLottie = () => {
 	const defaultOptions = {
 		loop: true,
 		autoplay: true,
