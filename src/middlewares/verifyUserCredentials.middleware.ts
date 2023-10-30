@@ -1,6 +1,6 @@
 import toast from "react-hot-toast";
-import { ConfigSession } from "../pages/Login";
 import { User } from "../interfaces/User";
+import { ConfigSession } from "../interfaces/Session";
 
 export const verifyUserCredentials = (session: ConfigSession) => {
 	const storedUsers = localStorage.getItem("users");
@@ -25,8 +25,6 @@ export const verifyUserCredentials = (session: ConfigSession) => {
 		toast.error("Senha incorreta", { id: "password wrong" });
 		return false;
 	}
-
-	sessionStorage.setItem("userSession", JSON.stringify(session));
 
 	return true;
 };
