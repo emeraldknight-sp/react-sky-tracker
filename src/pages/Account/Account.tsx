@@ -1,65 +1,72 @@
-import { useNavigate } from "react-router-dom";
 import UserProfilePicture from "../../assets/user.png";
+import toast from "react-hot-toast";
+import { Button } from "../../components/ui/Button";
 import { Header } from "../../components/layout/Header";
 import { Main } from "../../components/layout/Main";
 import { Navbar } from "../../components/layout/Navbar";
-import { Button } from "../../components/ui/Button";
-import { Register } from "../Register";
 import { StyledAccount, StyledProfile, StyledUsername } from "./Account.style";
-import toast from "react-hot-toast";
+import { Navigate, useNavigate } from "react-router-dom";
+import { User } from "../../interfaces/User";
+import { useContext } from "react";
+import { SessionContext } from "../../context/SessionContext";
 
 export const Account = () => {
-	const storedUser = localStorage.getItem("user");
+	const storedUsers = localStorage.getItem("users");
+	const { session, setSession } = useContext(SessionContext);
+	const navigate = useNavigate();
 
-	if (storedUser) {
-		const user = JSON.parse(storedUser);
-		const navigate = useNavigate();
-
-		const handleLogout = () => {
-			localStorage.removeItem("user");
-			toast("Você deslogou da sua conta", { icon: "👋" });
-			navigate("/");
-		};
-
-		return (
-			<>
-				<Header />
-				<Main>
-					<StyledAccount>
-						<StyledProfile>
-							<figure>
-								<img src={UserProfilePicture} alt="user profile" />
-							</figure>
-							<StyledUsername>
-								<p className="name">
-									{user.firstName} {user.lastName}
-								</p>
-								<span className="username">
-									@{user.firstName.toLocaleLowerCase()}
-									{user.lastName.toLocaleLowerCase()}
-								</span>
-							</StyledUsername>
-						</StyledProfile>
-						<h3>Configurações</h3>
-						<p>Localização</p>
-						<p>Unidades de medidas</p>
-						<p>Tema escuro</p>
-						<p>Idioma</p>
-						<p>Alertas</p>
-						<Button
-							type="button"
-							size="lg"
-							style="contained"
-							onClick={handleLogout}
-						>
-							Encerrar sessão
-						</Button>
-					</StyledAccount>
-				</Main>
-				<Navbar />
-			</>
-		);
-	} else {
-		return <Register />;
+	if (!storedUsers) {
+		navigate("/register");
+		return;
 	}
+
+	const users = JSON.parse(storedUsers);
+	const filteredUser = users.find((user: User) => user.email === session.email);
+
+	const handleLogout = () => {
+		setSession({ ...session, isLogged: false });
+		toast("Você deslogou da sua conta", { id: "greetings", icon: "👋" });
+		navigate("/");
+	};
+
+	return session.isLogged ? (
+		<>
+			<Header />
+			<Main>
+				<StyledAccount>
+					<StyledProfile>
+						<figure>
+							<img src={UserProfilePicture} alt="user profile" />
+						</figure>
+						<StyledUsername>
+							<p className="name">
+								{filteredUser.firstName} {filteredUser.lastName}
+							</p>
+							<span className="username">
+								@{filteredUser.firstName.toLocaleLowerCase()}
+								{filteredUser.lastName.toLocaleLowerCase()}
+							</span>
+						</StyledUsername>
+					</StyledProfile>
+					<h3>Configurações</h3>
+					<p>Localização</p>
+					<p>Unidades de medidas</p>
+					<p>Tema escuro</p>
+					<p>Idioma</p>
+					<p>Alertas</p>
+					<Button
+						type="button"
+						size="lg"
+						style="contained"
+						onClick={handleLogout}
+					>
+						Encerrar sessão
+					</Button>
+				</StyledAccount>
+			</Main>
+			<Navbar />
+		</>
+	) : (
+		<Navigate to="/login" replace />
+	);
 };

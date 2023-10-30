@@ -12,27 +12,15 @@ import {
 	StyledSocialLoginButtons,
 	StyledLoginButtonForm,
 } from "./Login.style";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useContext } from "react";
 import { verifyUserCredentials } from "../../middlewares/verifyUserCredentials.middleware";
 import { loginSchema } from "../../components/utils/loginSchema";
-
-export interface ConfigSession {
-	email: string;
-	password: string;
-	remember: boolean;
-	isLogged: boolean;
-}
+import { SessionContext } from "../../context/SessionContext";
 
 export const Login = () => {
-	const [session, setSession] = useState<ConfigSession>({
-		email: "",
-		password: "",
-		remember: false,
-		isLogged: false,
-	});
-
+	const { session, setSession } = useContext(SessionContext);
 	const navigate = useNavigate();
 
 	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -41,7 +29,6 @@ export const Login = () => {
 		setSession({
 			...session,
 			[name]: type === "checkbox" ? checked : value,
-			isLogged: !session.isLogged,
 		});
 	};
 
@@ -51,9 +38,11 @@ export const Login = () => {
 		const verifiedUser = verifyUserCredentials(session);
 		const validatedLogin = loginSchema.safeParse(session);
 
+		setSession({ ...session, isLogged: true });
+
 		if (verifiedUser && validatedLogin.success) {
-			navigate("/account")
-			toast("Bem-vindo!", { id: "welcome", icon: "👋" });
+			navigate("/account");
+			toast("Bem-vindo!", { id: "greetings", icon: "👋" });
 		}
 	};
 
@@ -113,7 +102,7 @@ export const Login = () => {
 							/>
 							<label htmlFor="remember">Lembrar de mim por 30 dias</label>
 						</StyledInput>
-						<a href="http://">Esqueci minha senha</a>
+						<Link to="/login">Esqueci minha senha</Link>
 						<StyledLoginButtonForm>
 							<Button type="submit" size="lg" style="contained">
 								Entrar

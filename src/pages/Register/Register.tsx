@@ -13,21 +13,21 @@ import {
 	StyledRegisterForm,
 	StyledSocialRegisterButtons,
 } from "./Register.style";
-import { UserDataContext } from "../../context/UserDataContext";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { verifyUserRegister } from "../../middlewares/verifyUserRegister.middleware";
 import { registrationSchema } from "../../components/utils/registrationSchema";
+import { UserContext } from "../../context/UserContext";
 
 export const Register = () => {
-	const { userData, setUserData } = useContext(UserDataContext);
+	const { user, setUser } = useContext(UserContext);
 	const navigate = useNavigate();
 
 	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = e.target;
 
-		setUserData({
-			...userData,
+		setUser({
+			...user,
 			[name]: value,
 		});
 	};
@@ -35,8 +35,8 @@ export const Register = () => {
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
-		const verifiedUser = verifyUserRegister(userData);
-		const validatedForm = registrationSchema.safeParse(userData);
+		const verifiedUser = verifyUserRegister(user);
+		const validatedForm = registrationSchema.safeParse(user);
 
 		if (verifiedUser && validatedForm.success) {
 			toast.success("Conta criada com sucesso", {
@@ -68,7 +68,7 @@ export const Register = () => {
 								type="text"
 								autoComplete="given-name"
 								placeholder="Digite seu nome"
-								value={userData.firstName}
+								value={user.firstName}
 								onChange={handleChange}
 							/>
 						</StyledInput>
@@ -80,7 +80,7 @@ export const Register = () => {
 								type="text"
 								autoComplete="family-name"
 								placeholder="Digite seu sobrenome"
-								value={userData.lastName}
+								value={user.lastName}
 								onChange={handleChange}
 							/>
 						</StyledInput>
@@ -92,7 +92,7 @@ export const Register = () => {
 								type="email"
 								autoComplete="email"
 								placeholder="Digite seu e-mail"
-								value={userData.email}
+								value={user.email}
 								onChange={handleChange}
 							/>
 						</StyledInput>
@@ -104,7 +104,7 @@ export const Register = () => {
 								type="password"
 								autoComplete="new-password"
 								placeholder="Digite sua senha"
-								value={userData.password}
+								value={user.password}
 								onChange={handleChange}
 							/>
 						</StyledInput>
@@ -116,7 +116,7 @@ export const Register = () => {
 								type="password"
 								autoComplete="new-password"
 								placeholder="Confirme sua senha"
-								value={userData.confirmPassword}
+								value={user.confirmPassword}
 								onChange={handleChange}
 							/>
 						</StyledInput>
