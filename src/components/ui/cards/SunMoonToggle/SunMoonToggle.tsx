@@ -11,7 +11,7 @@ import {
 import { FiChevronRight } from "react-icons/fi";
 import { useContext } from "react";
 import { ForecastWeatherContext } from "../../../../context/ForecastWeatherContext";
-import { Loading } from "../../../layout/Loading";
+import { LoadingLottie } from "../../../animations/LoadingLottie";
 
 export const SunMoonToggle = () => {
 	const { forecast } = useContext(ForecastWeatherContext);
@@ -22,7 +22,7 @@ export const SunMoonToggle = () => {
 	)[0];
 
 	if (!forecastDayFiltered) {
-		return <Loading />;
+		return <LoadingLottie />;
 	}
 
 	const { astro } = forecastDayFiltered;

@@ -1,7 +1,7 @@
 import { StyledClimatePreviewHourly } from "./ClimatePreviewHourly.style";
 import { Forecast } from "../../../../interfaces/Forecast";
 import { formatDateToYYYYMMDD } from "../../../utils/formatDateToYYYYMMDD";
-import { Loading } from "../../../layout/Loading";
+import { LoadingLottie } from "../../../animations/LoadingLottie";
 
 interface ClimatePreviewHourlyProps {
 	data: Forecast;
@@ -14,7 +14,7 @@ export const ClimatePreviewHourly = ({ data }: ClimatePreviewHourlyProps) => {
 	)[0];
 
 	if (!forecastdayFiltered) {
-		return <Loading />;
+		return <LoadingLottie />;
 	}
 
 	const { hour } = forecastdayFiltered;

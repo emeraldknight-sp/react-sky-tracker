@@ -3,7 +3,7 @@ import { ClimateInformation } from "../../components/ui/cards/ClimateInformation
 import { ClimatePreview } from "../../components/ui/cards/ClimatePreview";
 import { FlexContainer, StyledHome } from "./Home.style";
 import { Header } from "../../components/layout/Header/";
-import { Loading } from "../../components/layout/Loading";
+import { LoadingLottie } from "../../components/animations/LoadingLottie";
 import { LocationContext } from "../../context/LocationContext";
 import { Main } from "../../components/layout/Main";
 import { Navbar } from "../../components/layout/Navbar";
@@ -33,7 +33,7 @@ export const Home = () => {
 						</div>
 					</FlexContainer>
 				) : (
-					<Loading />
+					<LoadingLottie />
 				)}
 			</Main>
 			<Navbar />

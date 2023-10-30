@@ -2,7 +2,7 @@ import { BsFacebook, BsGoogle, BsMicrosoft, BsTwitter } from "react-icons/bs";
 import { Button } from "../../components/ui/Button";
 import { ChangeEvent, FormEvent, useContext } from "react";
 import { Divider } from "../../components/layout/Divider";
-import { GhostHalloween } from "../../components/layout/GhostHalloween";
+import { GhostLottie } from "../../components/animations/GhostLottie";
 import { Header } from "../../components/layout/Header";
 import { Main } from "../../components/layout/Main";
 import { Navbar } from "../../components/layout/Navbar";
@@ -56,7 +56,7 @@ export const Register = () => {
 			<Main>
 				<StyledRegister>
 					<div className="page-title">
-						<GhostHalloween />
+						<GhostLottie />
 						<h2>Registrar conta</h2>
 					</div>
 					<StyledRegisterForm action="submit" onSubmit={(e) => handleSubmit(e)}>

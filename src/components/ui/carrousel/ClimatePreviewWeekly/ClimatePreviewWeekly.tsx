@@ -1,5 +1,5 @@
 import { ForecastDay } from "../../../../interfaces/ForecastDay";
-import { Loading } from "../../../layout/Loading";
+import { LoadingLottie } from "../../../animations/LoadingLottie";
 import { formatDateToYYYYMMDD } from "../../../utils/formatDateToYYYYMMDD";
 import { StyledClimatePreviewWeekly } from "./ClimatePreviewWeekly.style";
 
@@ -11,7 +11,7 @@ export const ClimatePreviewWeekly = ({ data }: ClimatePreviewWeeklyProps) => {
 	const currentDate = formatDateToYYYYMMDD(new Date());
 
 	if (!data) {
-		return <Loading />;
+		return <LoadingLottie />;
 	}
 
 	return (
