@@ -1,7 +1,8 @@
 import { CurrentWeatherProvider } from "./CurrentWeatherContext";
 import { ForecastWeatherProvider } from "./ForecastWeatherContext";
 import { LocationProvider } from "./LocationContext";
-import { UserDataProvider } from "./UserDataContext";
+import { SessionProvider } from "./SessionContext";
+import { UserProvider } from "./UserContext";
 
 interface ContextProviderProps {
 	children: React.ReactNode;
@@ -12,7 +13,9 @@ export const ContextProvider = ({ children }: ContextProviderProps) => {
 		<LocationProvider>
 			<ForecastWeatherProvider>
 				<CurrentWeatherProvider>
-					<UserDataProvider>{children}</UserDataProvider>
+					<UserProvider>
+						<SessionProvider>{children}</SessionProvider>
+					</UserProvider>
 				</CurrentWeatherProvider>
 			</ForecastWeatherProvider>
 		</LocationProvider>
