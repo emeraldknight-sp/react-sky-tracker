@@ -30,6 +30,9 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [Create react-app](https://Reactjs.org/docs/api-reference/create-React-app)
 - [React.JS](https://react.dev/learn)
 - [React Router DOM](https://reactrouter.com/en/main)
+- [React Lottie](https://www.npmjs.com/package/react-lottie)
+- [React Icons](https://www.npmjs.com/package/react-icons)
+- [React Hot Toast](https://www.npmjs.com/package/react-hot-toast)
 - [Typescript](https://www.typescriptlang.org/docs/)
 - [Styled Components](https://styled-components.com/docs)
 - [Axios](https://axios-http.com/ptbr/docs/intro)
@@ -37,6 +40,8 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [Prettier](https://prettier.io/docs/en/index.html)
 - [Husky](https://typicode.github.io/husky/#/)
 - [Lint-Staged](https://valchan.com.br/lint-staged-husky/)
+- [Dotenv](https://www.npmjs.com/package/dotenv)
+- [Zod](https://www.npmjs.com/package/zod)
 
 ## 💻 Projeto
 
