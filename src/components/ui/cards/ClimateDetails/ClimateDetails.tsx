@@ -3,23 +3,21 @@ import {
 	FiDroplet,
 	FiSun,
 	FiThermometer,
-	FiWind,
+	FiCloud,
 } from "react-icons/fi";
 import { StyledClimateDetails } from "./ClimateDetails.style";
 import { MdWaves } from "react-icons/md";
-import { airQualityAverage } from "../../../utils/airQualityAverage";
 import { useContext } from "react";
 import { CurrentWeatherContext } from "../../../../context/CurrentWeatherContext";
 
 export const ClimateDetails = () => {
 	const { current } = useContext(CurrentWeatherContext);
-	const aqi = airQualityAverage(current.air_quality);
 
 	const items = [
 		{
-			icon: <FiWind size={24} />,
-			data: aqi,
-			description: "Qualidade do ar",
+			icon: <FiCloud size={24} />,
+			data: `${current.cloud}%`,
+			description: "Nuvens",
 		},
 		{
 			icon: <FiThermometer size={24} />,
