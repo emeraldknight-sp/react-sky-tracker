@@ -17,7 +17,7 @@ export const Account = () => {
 
 	if (!storedUsers) {
 		navigate("/register");
-		return;
+		return <Navigate to="/register" replace />;
 	}
 
 	const users = JSON.parse(storedUsers);
@@ -29,7 +29,12 @@ export const Account = () => {
 		navigate("/");
 	};
 
-	return session.isLogged ? (
+	if (!session.isLogged) {
+		navigate("/login");
+		return <Navigate to="/login" replace />;
+	}
+
+	return (
 		<>
 			<Header />
 			<Main>
@@ -66,7 +71,5 @@ export const Account = () => {
 			</Main>
 			<Navbar />
 		</>
-	) : (
-		<Navigate to="/login" replace />
 	);
 };
