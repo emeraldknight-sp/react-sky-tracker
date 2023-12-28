@@ -31,10 +31,8 @@ export const Menu = () => {
 	const navigate = useNavigate();
 
 	const handleClick = (urlParam: string) => {
-		if (urlParam === "/account") {
-			navigate("/account");
-		} else if (urlParam === "/") {
-			navigate("/");
+		if (urlParam !== "/maps") {
+			navigate(urlParam);
 		} else {
 			toast.error("Em desenvolvimento", { id: urlParam });
 		}

@@ -9,7 +9,7 @@ export const Navbar = () => {
 			icon: <FiHome size={24} />,
 		},
 		{
-			link: "/",
+			link: "/activities",
 			icon: <FiActivity size={24} />,
 		},
 		{
