@@ -17,14 +17,13 @@ export const LocationProvider = ({ children }: LocationProviderProps) => {
 			const data = await getLocation();
 			setLocation(data);
 		} catch (error) {
-			console.error("Erro ao obter dados de localização:", error);
-			setLocation(location);
+			console.error("Error:", error);
 		}
 	};
 
 	useEffect(() => {
 		fetchLocationData();
-		const intervalId = setInterval(fetchLocationData, 10000);
+		const intervalId = setInterval(fetchLocationData, 5000);
 
 		return () => clearInterval(intervalId);
 	}, []);

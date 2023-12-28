@@ -20,7 +20,7 @@ export const CurrentWeatherProvider = ({
 	const fetchCurrentWeatherData = async () => {
 		if (location) {
 			try {
-				const data = await getCurrentWeatherData();
+				const data = await getCurrentWeatherData(location);
 				setCurrentWeather(data);
 			} catch (error) {
 				console.error("Erro ao obter dados de previsão do tempo:", error);
