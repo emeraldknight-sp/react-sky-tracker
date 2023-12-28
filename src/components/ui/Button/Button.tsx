@@ -4,8 +4,8 @@ interface ButtonProps {
 	children: React.ReactNode;
 	onClick?: () => void;
 	type?: "button" | "reset" | "submit";
-	style: "contained" | "text" | "outlined";
-	size: "xs" | "sm" | "md" | "lg";
+	style?: "contained" | "text" | "outlined";
+	size?: "xs" | "sm" | "md" | "lg";
 	className?: string;
 }
 

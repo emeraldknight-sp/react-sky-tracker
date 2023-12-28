@@ -1,8 +1,14 @@
 import styled from "styled-components";
 
 export const StyledButton = styled.button`
-	padding: 0.5rem 1rem;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	flex: 1;
 
+	padding: 0.5rem 1rem;
 	border: 3px solid var(--transparent);
 	border-radius: 8px;
 	cursor: pointer;
