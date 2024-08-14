@@ -1,17 +1,14 @@
 {
-	"name": "react-project-weather",
-	"version": "0.1.0",
+	"name": "react-sky-tracker",
+	"version": "1.0.0",
 	"private": true,
 	"scripts": {
 		"start": "react-scripts start",
 		"build": "react-scripts build",
-		"test": "react-scripts test",
-		"eject": "react-scripts eject",
 		"write": "prettier --write .",
 		"check": "prettier --check .",
 		"prepare": "husky install",
-		"lint-staged": "lint-staged",
-		"vercel": "vercel --build-env CI=true"
+		"lint-staged": "lint-staged"
 	},
 	"dependencies": {
 		"@testing-library/dom": "^9.3.1",
@@ -53,6 +50,14 @@
 		"prettier": "^3.1.1",
 		"react-scripts": "5.0.1"
 	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"*.{js,jsx,ts,tsx,md}": "prettier --write ./"
+	},
 	"eslintConfig": {
 		"extends": [
 			"react-app",
@@ -70,13 +75,5 @@
 			"last 1 firefox version",
 			"last 1 safari version"
 		]
-	},
-	"husky": {
-		"hooks": {
-			"pre-commit": "lint-staged"
-		}
-	},
-	"lint-staged": {
-		"*.{js,jsx,ts,tsx,md}": "prettier --write ./"
 	}
 }
