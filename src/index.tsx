@@ -3,13 +3,19 @@ import ReactDOM from "react-dom/client";
 import { App } from "./App";
 import { ContextProvider } from "./context/index";
 import { GlobalStyles } from "./styles/global";
-import { Metric } from "web-vitals";
 import { Toaster } from "react-hot-toast";
 import { reportWebVitals } from "./reportWebVitals";
+import { Metric } from "web-vitals";
 
 const rootElement = document.getElementById("root");
+
+// This code is responsible for returning the application's
+// performance data in different characteristics.
+
 const handleWebVitals = (metric: Metric) => {
-	console.log(metric);
+	console.log(
+		`${metric.name} | ${metric.navigationType} | ${metric.rating}: ${metric.value.toFixed(2)}`,
+	);
 };
 
 if (rootElement) {
