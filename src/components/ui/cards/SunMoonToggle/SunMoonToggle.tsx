@@ -1,6 +1,8 @@
+import { FiChevronRight } from "react-icons/fi";
+import { LoadingLottie } from "../../../animations/LoadingLottie";
 import { StyledSunMoonToggle } from "./SunMoonToggle.style";
-import { formatDateToYYYYMMDD } from "../../../utils/formatDateToYYYYMMDD";
 import { convertTo24HourFormat } from "../../../utils/hourConvertFormat";
+import { formatDateToYYYYMMDD } from "../../../utils/formatDateToYYYYMMDD";
 import {
 	WiMoonrise,
 	WiMoonset,
@@ -8,14 +10,8 @@ import {
 	WiSunrise,
 	WiSunset,
 } from "react-icons/wi";
-import { FiChevronRight } from "react-icons/fi";
-import { useContext } from "react";
-import { ForecastWeatherContext } from "../../../../context/ForecastWeatherContext";
-import { LoadingLottie } from "../../../animations/LoadingLottie";
 
-export const SunMoonToggle = () => {
-	const { forecast } = useContext(ForecastWeatherContext);
-
+export const SunMoonToggle = ({ forecast }: SunMoonToggleProps) => {
 	const currentDate = formatDateToYYYYMMDD(new Date());
 	const forecastDayFiltered = forecast.forecastday.filter(
 		(element) => element.date === currentDate,
