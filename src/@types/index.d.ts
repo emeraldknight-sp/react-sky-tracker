@@ -210,6 +210,8 @@ type ClimateDetailsProps = Pick<ForecastWeather, "current">;
 
 type ClimatePreviewProps = Pick<ForecastWeather, "forecast">;
 
+type SunMoonToggleProps = Pick<ForecastWeather, "forecast">;
+
 interface ConfigSession {
 	email: string;
 	password: string;
