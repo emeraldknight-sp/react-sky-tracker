@@ -1,9 +1,4 @@
 import { createContext, useState } from "react";
-import {
-	ConfigSession,
-	SessionContextProps,
-	SessionProviderProps,
-} from "../interfaces/Session";
 import { mockSession } from "../mock/mockSession";
 
 export const SessionContext = createContext<SessionContextProps>({

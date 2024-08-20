@@ -6,7 +6,6 @@ import { Main } from "../../components/layout/Main";
 import { Navbar } from "../../components/layout/Navbar";
 import { StyledAccount, StyledProfile, StyledUsername } from "./Account.style";
 import { Navigate, useNavigate } from "react-router-dom";
-import { User } from "../../interfaces/User";
 import { useContext } from "react";
 import { SessionContext } from "../../context/SessionContext";
 

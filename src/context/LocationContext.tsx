@@ -1,16 +1,11 @@
 import { createContext, useEffect, useState } from "react";
 import { getLocation } from "../api/getLocation";
 import { mockLocation } from "../mock/mockLocation";
-import { GeoLocation } from "../interfaces/GeoLocation";
 
-export const LocationContext = createContext<GeoLocation>(mockLocation);
-
-interface LocationProviderProps {
-	children: React.ReactNode;
-}
+export const LocationContext = createContext<GeolocationPosition>(mockLocation);
 
 export const LocationProvider = ({ children }: LocationProviderProps) => {
-	const [location, setLocation] = useState(mockLocation);
+	const [location, setLocation] = useState<GeolocationPosition>(mockLocation);
 
 	const fetchLocationData = async () => {
 		try {
@@ -23,7 +18,7 @@ export const LocationProvider = ({ children }: LocationProviderProps) => {
 
 	useEffect(() => {
 		fetchLocationData();
-		const intervalId = setInterval(fetchLocationData, 5000);
+		const intervalId = setInterval(fetchLocationData, 30000);
 
 		return () => clearInterval(intervalId);
 	}, []);

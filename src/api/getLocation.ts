@@ -1,43 +1,81 @@
-import axios from "axios";
+// import axios from "axios";
+import toast from "react-hot-toast";
 
 export const getLocation = async () => {
-	const apikey = process.env.REACT_APP_API_KEY_WEATHER;
-	const appLocation = process.env.REACT_APP_LOCATION;
+	// const apikey = process.env.REACT_APP_API_KEY_WEATHER;
+	// const appLocation = process.env.REACT_APP_LOCATION;
+	// const baseUrl = process.env.REACT_APP_BASE_URL;
 
-	const getPosition = () => {
-		return new Promise((resolve, reject) => {
-			if (navigator.geolocation) {
-				navigator.geolocation.getCurrentPosition(
-					(position) => {
-						const coords = `${position.coords.latitude},${position.coords.longitude}`;
-						resolve(coords);
-					},
-					(error) => reject(error),
-				);
-			} else {
-				reject(new Error("Geolocation não suportada"));
-			}
-		});
-	};
+	// This function queries the user's location,
+	// asking for permission through a pop-up
+	// that opens when entering the page
 
-	try {
-		const location = await getPosition();
-		const { data } = await axios.get(
-			`https://api.weatherapi.com/v1/search.json?key=${apikey}&q=${location}`,
-		);
+	const location = await new Promise<GeolocationPosition>((resolve, reject) => {
+		// Below are the three constructed,
+		// configured and separated parameters
+		// to use in the .getCurrentPosition() function
 
-		return data[0];
-	} catch (error) {
-		console.error("Error: ", error);
-
-		try {
-			const { data } = await axios.get(
-				`https://api.weatherapi.com/v1/ip.json?key=${apikey}&q=${appLocation}`,
-			);
-			return data;
-		} catch (fallbackError) {
-			console.error("Erro na tentativa de fallback: ", fallbackError);
-			throw fallbackError;
+		function success(position: GeolocationPosition) {
+			resolve(position);
 		}
-	}
+
+		function error(err: GeolocationPositionError) {
+			console.error(`Error (${err.code}): ${err.message}`);
+			reject(err);
+		}
+
+		const options = {
+			enableHighAccuracy: true,
+			timeout: 5000,
+			maximumAge: 0,
+		};
+
+		// Next there is a conditional that asks the user
+		// if they want to grant geolocation access permission.
+
+		// The .getCurrentPosition method requires 3 parameters,
+		// error and options are optional, but the success parameter is mandatory.
+		// From time to time it is good to check the documentation.
+
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(success, error, options);
+		} else {
+			toast.error("Serviço de geolocalização indisponível!", {
+				id: "geolocation-blocked",
+			});
+			reject(new Error("Serviço de geolocalização indisponível!"));
+		}
+	});
+
+	return location;
+
+	// This code is commented and will be here in case one day I need this section
+
+	// In the try-catch block, the following code will try to fetch data
+	// based on the user's real location, if it fails, it will try to fetch information
+	// based on an example location to return the data,
+	// and without success in the request made, it returns an error.
+
+	// try {
+	// 	const geolocation: GeolocationPosition = await getPosition();
+	// 	const { latitude, longitude } = geolocation.coords;
+
+	// 	const { data } = await axios.get(
+	// 		`${baseUrl}/search.json?key=${apikey}&q=${latitude},${longitude}`,
+	// 	);
+
+	// 	return data[0];
+	// } catch (error) {
+	// 	console.error("Error: ", error);
+
+	// 	try {
+	// 		const { data } = await axios.get(
+	// 			`${baseUrl}/ip.json?key=${apikey}&q=${appLocation}`,
+	// 		);
+	// 		return data;
+	// 	} catch (fallbackError) {
+	// 		console.error("Erro na tentativa de fallback: ", fallbackError);
+	// 		throw fallbackError;
+	// 	}
+	// }
 };

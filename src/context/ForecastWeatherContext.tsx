@@ -1,15 +1,10 @@
+import { LocationContext } from "./LocationContext";
 import { createContext, useContext, useEffect, useState } from "react";
 import { getForecastWeatherData } from "../api/getForecastWeather";
-import { LocationContext } from "./LocationContext";
-import { ForecastWeather } from "../interfaces/ForecastWeather";
 import { mockForecast } from "../mock/mockForecast";
 
 export const ForecastWeatherContext =
 	createContext<ForecastWeather>(mockForecast);
-
-interface ForecastWeatherProviderProps {
-	children: React.ReactNode;
-}
 
 export const ForecastWeatherProvider = ({
 	children,
@@ -20,7 +15,7 @@ export const ForecastWeatherProvider = ({
 	const fetchForecastWeatherData = async () => {
 		if (location) {
 			try {
-				const data = await getForecastWeatherData(location);
+				const data: ForecastWeather = await getForecastWeatherData(location);
 				setForecast(data);
 			} catch (error) {
 				console.error("Erro ao obter dados de previsão do tempo:", error);

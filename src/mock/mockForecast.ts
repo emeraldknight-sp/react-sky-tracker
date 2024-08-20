@@ -1,5 +1,3 @@
-import { ForecastWeather } from "../interfaces/ForecastWeather";
-
 export const mockForecast: ForecastWeather = {
 	location: {
 		name: "Sao Paulo",

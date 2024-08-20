@@ -1,25 +1,24 @@
 import { FiArrowDown, FiArrowUp } from "react-icons/fi";
 import { StyledClimateInformation } from "./ClimateInformation.style";
 import { formatDateToYYYYMMDD } from "../../../utils/formatDateToYYYYMMDD";
-import { useContext } from "react";
-import { ForecastWeatherContext } from "../../../../context/ForecastWeatherContext";
 
-export const ClimateInformation = () => {
-	const { location, current, forecast } = useContext(ForecastWeatherContext);
-
+export const ClimateInformation = ({
+	location,
+	current,
+	forecast,
+}: ClimateInformationProps) => {
 	const currentDate = formatDateToYYYYMMDD(new Date());
 	const minTemp = Math.round(
 		Number(
-			forecast.forecastday.find((element) => element.date === currentDate)?.day
-				.mintemp_c,
+			forecast.forecastday.find((el) => el.date === currentDate)?.day.mintemp_c,
 		),
 	);
 	const maxTemp = Math.round(
 		Number(
-			forecast.forecastday.find((element) => element.date === currentDate)?.day
-				.maxtemp_c,
+			forecast.forecastday.find((el) => el.date === currentDate)?.day.maxtemp_c,
 		),
 	);
+
 	const temp_c = Math.round(current.temp_c);
 	const feelsLike = Math.round(current.feelslike_c);
 	const { icon, text } = current.condition;
@@ -87,7 +86,7 @@ export const ClimateInformation = () => {
 			</div>
 			<div className="climate-info__container">
 				<figure>
-					<img src={`http:${icon}`} alt="condition weather" />
+					<img src={`https:${icon}`} alt="condition weather" />
 				</figure>
 				<p>{text}</p>
 			</div>

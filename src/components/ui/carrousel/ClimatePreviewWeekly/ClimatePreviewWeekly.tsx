@@ -1,22 +1,17 @@
-import { ForecastDay } from "../../../../interfaces/ForecastDay";
 import { LoadingLottie } from "../../../animations/LoadingLottie";
 import { formatDateToYYYYMMDD } from "../../../utils/formatDateToYYYYMMDD";
 import { StyledClimatePreviewWeekly } from "./ClimatePreviewWeekly.style";
 
-interface ClimatePreviewWeeklyProps {
-	data: ForecastDay[];
-}
-
-export const ClimatePreviewWeekly = ({ data }: ClimatePreviewWeeklyProps) => {
+export const ClimatePreviewWeekly = ({ forecast }: ClimatePreviewProps) => {
 	const currentDate = formatDateToYYYYMMDD(new Date());
 
-	if (!data) {
+	if (!forecast) {
 		return <LoadingLottie />;
 	}
 
 	return (
 		<>
-			{data.map(({ date, day }, index) => {
+			{forecast.forecastday.map(({ date, day }, index) => {
 				const { icon } = day.condition;
 				const avgTemp = Math.round(day.avgtemp_c);
 

@@ -1,15 +1,10 @@
 import { StyledClimatePreviewHourly } from "./ClimatePreviewHourly.style";
-import { Forecast } from "../../../../interfaces/Forecast";
 import { formatDateToYYYYMMDD } from "../../../utils/formatDateToYYYYMMDD";
 import { LoadingLottie } from "../../../animations/LoadingLottie";
 
-interface ClimatePreviewHourlyProps {
-	data: Forecast;
-}
-
-export const ClimatePreviewHourly = ({ data }: ClimatePreviewHourlyProps) => {
+export const ClimatePreviewHourly = ({ forecast }: ClimatePreviewProps) => {
 	const currentDate = formatDateToYYYYMMDD(new Date());
-	const forecastdayFiltered = data.forecastday.filter(
+	const forecastdayFiltered = forecast.forecastday.filter(
 		(forecast) => forecast.date === currentDate,
 	)[0];
 
@@ -18,7 +13,6 @@ export const ClimatePreviewHourly = ({ data }: ClimatePreviewHourlyProps) => {
 	}
 
 	const { hour } = forecastdayFiltered;
-
 	const locale = "pt-BR";
 	const options: Intl.DateTimeFormatOptions = {
 		hour: "2-digit",
@@ -37,9 +31,7 @@ export const ClimatePreviewHourly = ({ data }: ClimatePreviewHourlyProps) => {
 				const elementHour = new Date(element.time);
 				const temp_c = Math.round(element.temp_c);
 				const { icon } = element.condition;
-
 				const whatTimeIsIt = isSameHour(now, elementHour);
-
 				return (
 					<StyledClimatePreviewHourly
 						key={index}

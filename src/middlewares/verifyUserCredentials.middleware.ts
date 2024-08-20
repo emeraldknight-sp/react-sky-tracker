@@ -1,6 +1,4 @@
 import toast from "react-hot-toast";
-import { User } from "../interfaces/User";
-import { ConfigSession } from "../interfaces/Session";
 
 export const verifyUserCredentials = (session: ConfigSession) => {
 	const storedUsers = localStorage.getItem("users");

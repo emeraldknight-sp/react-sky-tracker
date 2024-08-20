@@ -1,11 +1,9 @@
-import { useContext, useState } from "react";
 import { ClimatePreviewHourly } from "../../carrousel/ClimatePreviewHourly";
-import { StyledClimatePreview } from "./ClimatePreview.style";
 import { ClimatePreviewWeekly } from "../../carrousel/ClimatePreviewWeekly";
-import { ForecastWeatherContext } from "../../../../context/ForecastWeatherContext";
+import { StyledClimatePreview } from "./ClimatePreview.style";
+import { useState } from "react";
 
-export const ClimatePreview = () => {
-	const forecast = useContext(ForecastWeatherContext);
+export const ClimatePreview = ({ forecast }: ClimatePreviewProps) => {
 	const [showHourly, setShowHourly] = useState(true);
 
 	const togglePreview = () => {
@@ -29,9 +27,9 @@ export const ClimatePreview = () => {
 			<div className="climate-preview__body">
 				<ul className="climate-preview__list">
 					{showHourly ? (
-						<ClimatePreviewHourly data={forecast.forecast} />
+						<ClimatePreviewHourly forecast={forecast} />
 					) : (
-						<ClimatePreviewWeekly data={forecast.forecast.forecastday} />
+						<ClimatePreviewWeekly forecast={forecast} />
 					)}
 				</ul>
 			</div>

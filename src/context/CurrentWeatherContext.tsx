@@ -1,20 +1,14 @@
-import { createContext, useContext, useEffect, useState } from "react";
 import { LocationContext } from "./LocationContext";
+import { createContext, useContext, useEffect, useState } from "react";
 import { getCurrentWeatherData } from "../api/getCurrentWeather";
-import { CurrentWeather } from "../interfaces/CurrentWeather";
 import { mockCurrent } from "../mock/mockCurrent";
 
 export const CurrentWeatherContext = createContext<CurrentWeather>(mockCurrent);
-
-interface CurrentWeatherProviderProps {
-	children: React.ReactNode;
-}
 
 export const CurrentWeatherProvider = ({
 	children,
 }: CurrentWeatherProviderProps) => {
 	const [currentWeather, setCurrentWeather] = useState(mockCurrent);
-
 	const location = useContext(LocationContext);
 
 	const fetchCurrentWeatherData = async () => {

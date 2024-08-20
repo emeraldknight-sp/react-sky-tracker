@@ -1,5 +1,3 @@
-import { User } from "../interfaces/User";
-
 export const mockUser: User = {
 	id: "",
 	username: "",

@@ -7,12 +7,8 @@ import {
 } from "react-icons/fi";
 import { StyledClimateDetails } from "./ClimateDetails.style";
 import { MdWaves } from "react-icons/md";
-import { useContext } from "react";
-import { CurrentWeatherContext } from "../../../../context/CurrentWeatherContext";
 
-export const ClimateDetails = () => {
-	const { current } = useContext(CurrentWeatherContext);
-
+export const ClimateDetails = ({ current }: ClimateDetailsProps) => {
 	const items = [
 		{
 			icon: <FiCloud size={24} />,
