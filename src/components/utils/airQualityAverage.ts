@@ -1,5 +1,3 @@
-import { AirQuality } from "../../interfaces/utils/AirQuality";
-
 export const airQualityAverage = (airQualityData: AirQuality) => {
 	try {
 		const pollutantIndices = Object.values(airQualityData).filter(
