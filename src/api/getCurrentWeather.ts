@@ -7,13 +7,17 @@ export const getCurrentWeatherData = async (location: GeolocationPosition) => {
 	const baseUrl = process.env.REACT_APP_BASE_URL;
 
 	try {
-		const { data } = await axios.get(
+		const response = await axios.get(
 			`${baseUrl}/current.json?key=${apikey}&q=${location.coords.latitude},${location.coords.longitude}&aqi=${aqi}&lang=${language}`,
 		);
 
-		return data;
+		return response.data;
 	} catch (error) {
-		console.error("Error: ", error);
-		throw error;
+		if (axios.isAxiosError(error)) {
+			console.error(`Current Preview ${error.name}: ${error.message}`);
+		} else {
+			console.error("Unexpected error:", error);
+		}
+		return { error: "Unable to obtain data." };
 	}
 };

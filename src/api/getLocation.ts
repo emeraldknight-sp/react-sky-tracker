@@ -1,5 +1,5 @@
 // import axios from "axios";
-import toast from "react-hot-toast";
+import { toast } from "sonner";
 
 export const getLocation = async () => {
 	// const apikey = process.env.REACT_APP_API_KEY_WEATHER;
@@ -20,13 +20,12 @@ export const getLocation = async () => {
 		}
 
 		function error(err: GeolocationPositionError) {
-			console.error(`Error (${err.code}): ${err.message}`);
-			reject(err);
+			reject(`Geolocation | ${err.message}`);
 		}
 
 		const options = {
 			enableHighAccuracy: true,
-			timeout: 5000,
+			timeout: 30000,
 			maximumAge: 0,
 		};
 
@@ -43,7 +42,6 @@ export const getLocation = async () => {
 			toast.error("Serviço de geolocalização indisponível!", {
 				id: "geolocation-blocked",
 			});
-			reject(new Error("Serviço de geolocalização indisponível!"));
 		}
 	});
 

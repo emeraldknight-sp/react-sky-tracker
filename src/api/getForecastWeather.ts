@@ -9,13 +9,17 @@ export const getForecastWeatherData = async (location: GeolocationPosition) => {
 	const baseUrl = process.env.REACT_APP_BASE_URL;
 
 	try {
-		const { data } = await axios.get(
+		const response = await axios.get(
 			`${baseUrl}/forecast.json?key=${apikey}&q=${location.coords.latitude},${location.coords.longitude}&days=${days}&aqi=${aqi}&alerts=${alerts}&lang=${language}`,
 		);
 
-		return data;
+		return response.data;
 	} catch (error) {
-		console.error("Erro: ", error);
-		throw error;
+		if (axios.isAxiosError(error)) {
+			console.error(`Forecast Preview ${error.name}: ${error.message}`);
+		} else {
+			console.error("Unexpected error:", error);
+		}
+		return { error: "Unable to obtain data." };
 	}
 };
