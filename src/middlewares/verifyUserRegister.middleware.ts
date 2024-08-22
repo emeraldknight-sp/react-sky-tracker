@@ -1,4 +1,4 @@
-import toast from "react-hot-toast";
+import { toast } from "sonner";
 import { database } from "../database/db";
 
 export const verifyUserRegister = (userData: User) => {

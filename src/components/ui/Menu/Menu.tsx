@@ -1,4 +1,4 @@
-import toast from "react-hot-toast";
+import { toast } from "sonner";
 
 import { Button } from "../Button";
 import { StyledMenu } from "./Menu.style";

@@ -1,4 +1,4 @@
-import toast from "react-hot-toast";
+import { toast } from "sonner";
 
 export const verifyUserCredentials = (session: ConfigSession) => {
 	const storedUsers = localStorage.getItem("users");

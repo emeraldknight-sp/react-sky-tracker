@@ -13,7 +13,7 @@ import {
 	StyledLoginButtonForm,
 } from "./Login.style";
 import { Link, useNavigate } from "react-router-dom";
-import toast from "react-hot-toast";
+import { toast } from "sonner";
 import { ChangeEvent, FormEvent, useContext } from "react";
 import { verifyUserCredentials } from "../../middlewares/verifyUserCredentials.middleware";
 import { loginSchema } from "../../components/utils/loginSchema";

@@ -1,5 +1,5 @@
 import UserProfilePicture from "../../assets/user.png";
-import toast from "react-hot-toast";
+import { toast } from "sonner";
 import { Button } from "../../components/ui/Button";
 import { Header } from "../../components/layout/Header";
 import { Main } from "../../components/layout/Main";

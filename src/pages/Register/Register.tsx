@@ -13,7 +13,7 @@ import {
 	StyledSocialRegisterButtons,
 } from "./Register.style";
 import { useNavigate } from "react-router-dom";
-import toast from "react-hot-toast";
+import { toast } from "sonner";
 import { verifyUserRegister } from "../../middlewares/verifyUserRegister.middleware";
 import { registrationSchema } from "../../components/utils/registrationSchema";
 import { UserContext } from "../../context/UserContext";
