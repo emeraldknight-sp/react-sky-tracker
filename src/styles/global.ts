@@ -34,7 +34,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
-	font-family: var(--fontFamilyLato);
+	font-family: var(--content);
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -64,8 +64,7 @@ table {
 :root {
 
 /* TIPOGRAPHY */
---fontFamilyOswald: 'Oswald', sans-serif;
---fontFamilyLato: 'Lato', sans-serif;
+--content: 'Lato', sans-serif;
 
 /* PRIMARY PALLETE */
 --charcoal: #353C45;
