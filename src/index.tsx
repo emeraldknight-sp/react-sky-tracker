@@ -33,4 +33,6 @@ if (rootElement) {
 	console.error("Element 'root' not found in the DOM.");
 }
 
+// This function is responsible for calculating and returning metrics
+
 reportWebVitals(handleWebVitals);
