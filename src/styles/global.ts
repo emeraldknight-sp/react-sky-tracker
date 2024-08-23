@@ -2,14 +2,6 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
 
-* {
-	padding:0;
-	margin:0;
-	vertical-align:baseline;
-	list-style:none;
-	border:0
-}
-
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
