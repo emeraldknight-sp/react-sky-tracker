@@ -270,3 +270,11 @@ interface User {
 interface LocationProviderProps {
 	children: React.ReactNode;
 }
+
+interface MainProps {
+	children: React.ReactNode;
+}
+
+interface LayoutProps {
+	children: React.ReactNode;
+}
