@@ -2,19 +2,17 @@ import { ClimateDetails } from "../../components/ui/cards/ClimateDetails";
 import { ClimateInformation } from "../../components/ui/cards/ClimateInformation/ClimateInformation";
 import { ClimatePreview } from "../../components/ui/cards/ClimatePreview";
 import { ForecastWeatherContext } from "../../context/ForecastWeatherContext";
-import { Header } from "../../components/layout/Header/";
-import { Main } from "../../components/layout/Main";
-import { Navbar } from "../../components/layout/Navbar";
+import { StyledFlexContainer } from "./Home.style";
 import { SunMoonToggle } from "../../components/ui/cards/SunMoonToggle";
 import { useContext } from "react";
+import { Layout } from "../../components/layout/Layout";
 
 export const Home = () => {
 	const { location, current, forecast } = useContext(ForecastWeatherContext);
 
 	return (
-		<>
-			<Header />
-			<Main>
+		<Layout>
+			<StyledFlexContainer>
 				<ClimateInformation
 					location={location}
 					current={current}
@@ -23,8 +21,7 @@ export const Home = () => {
 				<ClimateDetails current={current} />
 				<ClimatePreview forecast={forecast} />
 				<SunMoonToggle forecast={forecast} />
-			</Main>
-			<Navbar />
-		</>
+			</StyledFlexContainer>
+		</Layout>
 	);
 };
