@@ -18,7 +18,7 @@ export const LocationProvider = ({ children }: LocationProviderProps) => {
 
 	useEffect(() => {
 		fetchLocationData();
-		const intervalId = setInterval(fetchLocationData, 30000);
+		const intervalId = setInterval(fetchLocationData, 5000);
 
 		return () => clearInterval(intervalId);
 	}, []);

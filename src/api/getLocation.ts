@@ -25,7 +25,7 @@ export const getLocation = async () => {
 
 		const options = {
 			enableHighAccuracy: true,
-			timeout: 30000,
+			timeout: 5000,
 			maximumAge: 0,
 		};
 
