@@ -8,8 +8,8 @@ export const StyledNavbar = styled.nav`
 	background-color: var(--white);
 	border-top: 2px solid var(--primary-color);
 
-	width: 100%;
-	padding: 8px 0;
+	width: calc(100% - 32px);
+	padding: 0.5rem 1rem;
 
 	.navbar__list {
 		display: flex;

@@ -1,28 +1,28 @@
+import { Activity, Home, Map, Search, User } from "lucide-react";
 import { Link } from "react-router-dom";
-import { FiActivity, FiHome, FiMap, FiSearch, FiUser } from "react-icons/fi";
 import { StyledNavbar } from "./Navbar.style";
 
 export const Navbar = () => {
 	const options = [
 		{
 			link: "/",
-			icon: <FiHome size={24} />,
+			icon: <Home size={24} />,
 		},
 		{
 			link: "/activities",
-			icon: <FiActivity size={24} />,
+			icon: <Activity size={24} />,
 		},
 		{
 			link: "/",
-			icon: <FiSearch size={24} />,
+			icon: <Search size={24} />,
 		},
 		{
 			link: "/",
-			icon: <FiMap size={24} />,
+			icon: <Map size={24} />,
 		},
 		{
 			link: "/account",
-			icon: <FiUser size={24} />,
+			icon: <User size={24} />,
 		},
 	];
 
