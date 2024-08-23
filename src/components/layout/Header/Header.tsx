@@ -1,12 +1,14 @@
 import Logo from "../../../assets/logo.svg";
-import { Bell } from "lucide-react";
+import { Bell, BellRing } from "lucide-react";
 import { Link } from "react-router-dom";
-import { StyledHeader } from "./Header.style";
+import { StyledButtonNotifications, StyledHeader } from "./Header.style";
 import { toast } from "sonner";
 import { useState } from "react";
 
 export const Header = () => {
 	const [isOpenNotifications, setIsOpenNotifications] = useState(false);
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	const [hasNotifications, setHasNotifications] = useState(false);
 
 	const handleNotifications = () => {
 		setIsOpenNotifications(!isOpenNotifications);
@@ -25,14 +27,15 @@ export const Header = () => {
 				/>
 				<h1>Project Skytracker</h1>
 			</Link>
-			<button
+			<StyledButtonNotifications
 				type="button"
 				onClick={handleNotifications}
 				title="notifications"
 				aria-label="notifications"
+				hasNotifications={hasNotifications}
 			>
-				<Bell size={20} />
-			</button>
+				{hasNotifications ? <BellRing size={20} /> : <Bell size={20} />}
+			</StyledButtonNotifications>
 		</StyledHeader>
 	);
 };
