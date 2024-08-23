@@ -1,10 +1,15 @@
-import { BsFacebook, BsGoogle, BsMicrosoft, BsTwitter } from "react-icons/bs";
 import { Button } from "../../components/ui/Button";
 import { ChangeEvent, FormEvent, useContext } from "react";
 import { Divider } from "../../components/layout/Divider";
 import { Header } from "../../components/layout/Header";
 import { Main } from "../../components/layout/Main";
 import { Navbar } from "../../components/layout/Navbar";
+import { UserContext } from "../../context/UserContext";
+import { WitchLottie } from "../../components/animations/WitchLottie/WitchLottie";
+import { registrationSchema } from "../../components/utils/registrationSchema";
+import { toast } from "sonner";
+import { useNavigate } from "react-router-dom";
+import { verifyUserRegister } from "../../middlewares/verifyUserRegister.middleware";
 import {
 	StyledButtonGroupForm,
 	StyledInput,
@@ -12,12 +17,6 @@ import {
 	StyledRegisterForm,
 	StyledSocialRegisterButtons,
 } from "./Register.style";
-import { useNavigate } from "react-router-dom";
-import { toast } from "sonner";
-import { verifyUserRegister } from "../../middlewares/verifyUserRegister.middleware";
-import { registrationSchema } from "../../components/utils/registrationSchema";
-import { UserContext } from "../../context/UserContext";
-import { WitchLottie } from "../../components/animations/WitchLottie/WitchLottie";
 
 export const Register = () => {
 	const { user, setUser } = useContext(UserContext);
@@ -137,16 +136,16 @@ export const Register = () => {
 					<Divider>registre-se com</Divider>
 					<StyledSocialRegisterButtons>
 						<Button type="button" size="lg" style="text">
-							<BsFacebook />
+							<i className="fa-brands fa-google"></i>
 						</Button>
 						<Button type="button" size="lg" style="text">
-							<BsTwitter />
+							<i className="fa-brands fa-microsoft"></i>
 						</Button>
 						<Button type="button" size="lg" style="text">
-							<BsGoogle />
+							<i className="fa-brands fa-meta"></i>
 						</Button>
 						<Button type="button" size="lg" style="text">
-							<BsMicrosoft />
+							<i className="fa-brands fa-x-twitter"></i>
 						</Button>
 					</StyledSocialRegisterButtons>
 				</StyledRegister>

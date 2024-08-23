@@ -1,15 +1,8 @@
-import { FiChevronRight } from "react-icons/fi";
 import { LoadingLottie } from "../../../animations/LoadingLottie";
 import { StyledSunMoonToggle } from "./SunMoonToggle.style";
 import { convertTo24HourFormat } from "../../../utils/hourConvertFormat";
 import { formatDateToYYYYMMDD } from "../../../utils/formatDateToYYYYMMDD";
-import {
-	WiMoonrise,
-	WiMoonset,
-	WiNightClear,
-	WiSunrise,
-	WiSunset,
-} from "react-icons/wi";
+import { ChevronRight, Moon, Sunrise, Sunset } from "lucide-react";
 
 export const SunMoonToggle = ({ forecast }: SunMoonToggleProps) => {
 	const currentDate = formatDateToYYYYMMDD(new Date());
@@ -39,13 +32,13 @@ export const SunMoonToggle = ({ forecast }: SunMoonToggleProps) => {
 					<div className="astro__content">
 						<div className="astro__info">
 							<span className="astro__icon">
-								<WiSunrise size={24} />
+								<Sunrise size={24} />
 							</span>
 							<p className="astro__text">{convertedSunrise}</p>
 						</div>
 						<div className="astro__info">
 							<span className="astro__icon">
-								<WiSunset size={24} />
+								<Sunset size={24} />
 							</span>
 							<p className="astro__text">{convertedSunset}</p>
 						</div>
@@ -59,28 +52,28 @@ export const SunMoonToggle = ({ forecast }: SunMoonToggleProps) => {
 					<div className="astro__content">
 						<div className="astro__info">
 							<span className="astro__icon">
-								<WiMoonrise size={24} />
+								<Moon size={24} />
 							</span>
 							<p className="astro__text">{convertedMoonrise}</p>
 						</div>
 						<div className="astro__moon-phase">
 							<div className="astro__info--row">
 								<span className="astro__icon">
-									<WiNightClear size={24} />
+									<Moon size={24} />
 								</span>
 								<p className="astro__text">{astro.moon_phase}</p>
 							</div>
 							<div className="astro__info--row">
 								<p className="astro__text">Luz refletida</p>
 								<span className="astro__icon">
-									<FiChevronRight />
+									<ChevronRight />
 								</span>
 								<p className="astro__text">{astro.moon_illumination}</p>
 							</div>
 						</div>
 						<div className="astro__info">
 							<span>
-								<WiMoonset size={24} />
+								<Moon size={24} />
 							</span>
 							<p className="astro__text">{convertedMoonset}</p>
 						</div>

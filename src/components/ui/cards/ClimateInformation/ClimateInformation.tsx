@@ -1,6 +1,6 @@
-import { FiArrowDown, FiArrowUp } from "react-icons/fi";
 import { StyledClimateInformation } from "./ClimateInformation.style";
 import { formatDateToYYYYMMDD } from "../../../utils/formatDateToYYYYMMDD";
+import { ArrowDown, ArrowUp } from "lucide-react";
 
 export const ClimateInformation = ({
 	location,
@@ -71,13 +71,13 @@ export const ClimateInformation = ({
 				<div className="climate-info__preview">
 					<p className="climate-info__preview-temp">
 						<span className="climate-info__preview-temp--icon">
-							<FiArrowDown />
+							<ArrowDown size={16} />
 						</span>
 						{`${minTemp}ºC`}
 					</p>
 					<p className="climate-info__preview-temp">
 						<span className="climate-info__preview-temp--icon">
-							<FiArrowUp />
+							<ArrowUp size={16} />
 						</span>
 						{`${maxTemp}ºC`}
 					</p>

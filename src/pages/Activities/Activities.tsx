@@ -1,4 +1,4 @@
-import { FiDelete, FiEdit } from "react-icons/fi";
+import { Delete, Edit } from "lucide-react";
 import { Header } from "../../components/layout/Header";
 import { Main } from "../../components/layout/Main";
 import { Navbar } from "../../components/layout/Navbar";
@@ -59,10 +59,10 @@ export const Activities = () => {
 									<span>{activity.time} </span>
 									<div className="section__item-button-group">
 										<Button type="button" style="outlined" size="md">
-											<FiDelete />
+											<Delete />
 										</Button>
 										<Button type="button" style="outlined" size="md">
-											<FiEdit />
+											<Edit />
 										</Button>
 										<Button type="button" style="outlined" size="md">
 											Concluir

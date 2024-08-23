@@ -1,10 +1,15 @@
-import { BsFacebook, BsGoogle, BsMicrosoft, BsTwitter } from "react-icons/bs";
 import { Button } from "../../components/ui/Button";
+import { ChangeEvent, FormEvent, useContext } from "react";
 import { Divider } from "../../components/layout/Divider";
 import { GhostLottie } from "../../components/animations/GhostLottie";
 import { Header } from "../../components/layout/Header";
+import { Link, useNavigate } from "react-router-dom";
 import { Main } from "../../components/layout/Main";
 import { Navbar } from "../../components/layout/Navbar";
+import { SessionContext } from "../../context/SessionContext";
+import { loginSchema } from "../../components/utils/loginSchema";
+import { toast } from "sonner";
+import { verifyUserCredentials } from "../../middlewares/verifyUserCredentials.middleware";
 import {
 	StyledLoginForm,
 	StyledInput,
@@ -12,12 +17,6 @@ import {
 	StyledSocialLoginButtons,
 	StyledLoginButtonForm,
 } from "./Login.style";
-import { Link, useNavigate } from "react-router-dom";
-import { toast } from "sonner";
-import { ChangeEvent, FormEvent, useContext } from "react";
-import { verifyUserCredentials } from "../../middlewares/verifyUserCredentials.middleware";
-import { loginSchema } from "../../components/utils/loginSchema";
-import { SessionContext } from "../../context/SessionContext";
 
 export const Login = () => {
 	const { session, setSession } = useContext(SessionContext);
@@ -120,19 +119,18 @@ export const Login = () => {
 					<Divider>ou</Divider>
 					<StyledSocialLoginButtons>
 						<Button type="button" size="lg" style="text">
-							<BsFacebook />
+							<i className="fa-brands fa-google"></i>
 						</Button>
 						<Button type="button" size="lg" style="text">
-							<BsTwitter />
+							<i className="fa-brands fa-microsoft"></i>
 						</Button>
 						<Button type="button" size="lg" style="text">
-							<BsGoogle />
+							<i className="fa-brands fa-meta"></i>
 						</Button>
 						<Button type="button" size="lg" style="text">
-							<BsMicrosoft />
+							<i className="fa-brands fa-x-twitter"></i>
 						</Button>
 					</StyledSocialLoginButtons>
-					{/* <GhostHalloween /> */}
 				</StyledLogin>
 			</Main>
 			<Navbar />
