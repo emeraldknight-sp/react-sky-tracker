@@ -23,8 +23,17 @@ if (rootElement) {
 	root.render(
 		<React.StrictMode>
 			<ContextProvider>
-				<Toaster position="bottom-right" richColors />
 				<GlobalStyles />
+				<Toaster
+					position="bottom-right"
+					richColors
+					toastOptions={{
+						style: {
+							border: "1px solid hsl(221, 91%, 91%)",
+							padding: "16px",
+						},
+					}}
+				/>
 				<App />
 			</ContextProvider>
 		</React.StrictMode>,
